@@ -1,65 +1,652 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { motion } from 'framer-motion';
+import { FaHandshake, FaChartLine, FaUsers, FaFlag, FaLightbulb, FaHeart, FaPhone } from 'react-icons/fa';
+import MembershipCounter from '@/components/MembershipCounter';
+import AnimatedSection from '@/components/AnimatedSection';
+import Link from 'next/link';
+import ChairmanCard from '@/components/ChairmanCard';
+import Image from 'next/image';
+
+export default function HomePage() {
+  const features = [
+    {
+      icon: <FaHandshake />,
+      title: 'Community Partnership',
+      description: 'Building strong community networks for collective growth',
+      color: 'from-blue-500 to-cyan-500',
+    },
+    {
+      icon: <FaChartLine />,
+      title: 'Sustainable Development',
+      description: 'Creating long-term solutions for community challenges',
+      color: 'from-green-500 to-emerald-500',
+    },
+    {
+      icon: <FaUsers />,
+      title: 'Leadership Training',
+      description: 'Developing next-generation community leaders',
+      color: 'from-purple-500 to-pink-500',
+    },
+    {
+      icon: <FaFlag />,
+      title: 'National Mission',
+      description: 'Contributing to the vision of Developed Bharat',
+      color: 'from-orange-500 to-red-500',
+    },
+    {
+      icon: <FaLightbulb />,
+      title: 'Innovation Hub',
+      description: 'Fostering innovative solutions for social issues',
+      color: 'from-yellow-500 to-amber-500',
+    },
+    {
+      icon: <FaHeart />,
+      title: 'Social Welfare',
+      description: 'Implementing impactful welfare programs',
+      color: 'from-rose-500 to-pink-500',
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-green-600/20 z-0" />
+        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5 z-0" />
+        
+        <div className="container mx-auto px-4 py-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <AnimatedSection direction="right">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="text-center lg:text-left"
+              >
+                {/* Logo in Hero */}
+                {/* <div className="mb-6 flex justify-center lg:justify-start">
+                  <div className="relative w-20 h-20 rounded-full overflow-hidden shadow-xl">
+                    <Image
+                      src="/bva_logo.jpeg"
+                      alt="Bharat Bikash Abhijan Logo"
+                      width={80}
+                      height={80}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                </div> */}
+
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+                  <span className="gradient-text">Bharat Bikash</span>
+                  <br />
+                  <span className="text-gray-800">Abhijan</span>
+                </h1>
+                
+                {/* Tagline */}
+                <div className="mb-6">
+                  <div className="text-2xl font-bold odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+                    ଭାରତ ବିକାଶ ଅଭିଯାନ
+                  </div>
+                  <div className="text-lg text-gray-700 mt-2" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+                    ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
+                  </div>
+                  <div className="text-xl text-gray-600 mt-4">
+                    A social welfare initiative for national development
+                  </div>
+                </div>
+
+                <p className="text-xl text-gray-600 mb-8 max-w-2xl">
+                  Empowering communities, transforming lives. Join our national movement for 
+                  sustainable development and social empowerment across India.
+                </p>
+                
+                {/* Contact Info */}
+                <div className="mb-8 p-4 bg-blue-50 rounded-xl inline-block">
+                  <div className="flex items-center space-x-3">
+                    <FaPhone className="text-green-600 text-xl" />
+                    <div>
+                      <div className="font-bold text-gray-800">Contact Number:</div>
+                      <a href="tel:6371602387" className="text-2xl font-bold gradient-text hover:underline">
+                        6371602387
+                      </a>
+                      <div className="text-sm text-gray-600">SEBA ENTERPRISES</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <Link href="/register">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-gradient-to-r from-blue-600 to-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      Join Now
+                    </motion.button>
+                  </Link>
+                  <Link href="/members">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="glass-effect px-8 py-4 rounded-xl font-semibold text-lg border border-blue-200 hover:border-blue-300 transition-all duration-300"
+                    >
+                      View Members
+                    </motion.button>
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatedSection>
+
+            <AnimatedSection direction="left" delay={0.3}>
+              <div className="relative">
+                <div className="absolute -top-4 -right-4 w-32 h-32 bg-yellow-400 rounded-full blur-3xl opacity-30 animate-pulse" />
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-400 rounded-full blur-3xl opacity-30 animate-pulse" />
+                <MembershipCounter />
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Chairman Section */}
+      <section id="chairman" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="container mx-auto px-4">
+          <ChairmanCard />
         </div>
-      </main>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <div className="mb-6 flex justify-center">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <Image
+                    src="/bva_logo.jpeg"
+                    alt="BVA Logo"
+                    width={64}
+                    height={64}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+                Our Mission & Vision
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                We are committed to creating a developed Bharat through community empowerment,
+                sustainable development, and inclusive growth.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <AnimatedSection key={index} delay={index * 0.1}>
+                <motion.div
+                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                  className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                >
+                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6`}>
+                    <div className="text-white text-2xl">
+                      {feature.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {feature.description}
+                  </p>
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
+        <div className="container mx-auto px-4 text-center">
+          <AnimatedSection>
+            <div className="max-w-4xl mx-auto">
+              <div className="mb-8 flex justify-center">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white">
+                  <Image
+                    src="/bva_logo.jpeg"
+                    alt="BVA Logo"
+                    width={80}
+                    height={80}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Make a Difference?
+              </h2>
+              <p className="text-xl text-blue-100 mb-10">
+                Join thousands of changemakers who are transforming communities across India.
+                Your journey with Bharat Bikash Abhijan starts here.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <Link href="/register">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300"
+                  >
+                    Register Now
+                  </motion.button>
+                </Link>
+                <p className="text-white/80 text-sm max-w-sm">
+                  * Requires referral from existing senior leader member
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
     </div>
   );
 }
+
+// 'use client';
+
+// import { motion } from 'framer-motion';
+// import { FaHandshake, FaChartLine, FaUsers, FaFlag, FaLightbulb, FaHeart, FaPhone } from 'react-icons/fa';
+// import MembershipCounter from '@/components/MembershipCounter';
+// import AnimatedSection from '@/components/AnimatedSection';
+// import Link from 'next/link';
+// import ChairmanCard from '@/components/ChairmanCard';
+
+// export default function HomePage() {
+//   const features = [
+//     {
+//       icon: <FaHandshake />,
+//       title: 'Community Partnership',
+//       description: 'Building strong community networks for collective growth',
+//       color: 'from-blue-500 to-cyan-500',
+//     },
+//     {
+//       icon: <FaChartLine />,
+//       title: 'Sustainable Development',
+//       description: 'Creating long-term solutions for community challenges',
+//       color: 'from-green-500 to-emerald-500',
+//     },
+//     {
+//       icon: <FaUsers />,
+//       title: 'Leadership Training',
+//       description: 'Developing next-generation community leaders',
+//       color: 'from-purple-500 to-pink-500',
+//     },
+//     {
+//       icon: <FaFlag />,
+//       title: 'National Mission',
+//       description: 'Contributing to the vision of Developed Bharat',
+//       color: 'from-orange-500 to-red-500',
+//     },
+//     {
+//       icon: <FaLightbulb />,
+//       title: 'Innovation Hub',
+//       description: 'Fostering innovative solutions for social issues',
+//       color: 'from-yellow-500 to-amber-500',
+//     },
+//     {
+//       icon: <FaHeart />,
+//       title: 'Social Welfare',
+//       description: 'Implementing impactful welfare programs',
+//       color: 'from-rose-500 to-pink-500',
+//     },
+//   ];
+
+//   return (
+//     <div className="overflow-hidden">
+//       {/* Hero Section */}
+//       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+//         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-green-600/20 z-0" />
+//         <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5 z-0" />
+        
+//         <div className="container mx-auto px-4 relative z-10">
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+//             <AnimatedSection direction="right">
+//               <motion.div
+//                 initial={{ opacity: 0, scale: 0.8 }}
+//                 animate={{ opacity: 1, scale: 1 }}
+//                 transition={{ duration: 0.8 }}
+//                 className="text-center lg:text-left"
+//               >
+//                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+//                   <span className="gradient-text">Bharat Bikash</span>
+//                   <br />
+//                   <span className="text-gray-800">Abhijan</span>
+//                 </h1>
+                
+//                 {/* Tagline */}
+//                 <div className="mb-6">
+//                   <div className="text-2xl font-bold odiya-gradient">
+//                     ଭାରତ ବିକାଶ ଅଭିଯାନ
+//                   </div>
+//                   <div className="text-lg text-gray-700 mt-2">
+//                     ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
+//                   </div>
+//                   <div className="text-xl text-gray-600 mt-4">
+//                     A social welfare initiative for national development
+//                   </div>
+//                 </div>
+
+//                 <p className="text-xl text-gray-600 mb-8 max-w-2xl">
+//                   Empowering communities, transforming lives. Join our national movement for 
+//                   sustainable development and social empowerment across India.
+//                 </p>
+                
+//                 {/* Contact Info */}
+//                 <div className="mb-8 p-4 bg-blue-50 rounded-xl inline-block">
+//                   <div className="flex items-center space-x-3">
+//                     <FaPhone className="text-green-600 text-xl" />
+//                     <div>
+//                       <div className="font-bold text-gray-800">Contact Number:</div>
+//                       <a href="tel:6371602387" className="text-2xl font-bold gradient-text hover:underline">
+//                         6371602387
+//                       </a>
+//                       <div className="text-sm text-gray-600">SEBA ENTERPRISES</div>
+//                     </div>
+//                   </div>
+//                 </div>
+
+//                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+//                   <Link href="/register">
+//                     <motion.button
+//                       whileHover={{ scale: 1.05 }}
+//                       whileTap={{ scale: 0.95 }}
+//                       className="bg-gradient-to-r from-blue-600 to-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+//                     >
+//                       Join Now
+//                     </motion.button>
+//                   </Link>
+//                   <Link href="/members">
+//                     <motion.button
+//                       whileHover={{ scale: 1.05 }}
+//                       whileTap={{ scale: 0.95 }}
+//                       className="glass-effect px-8 py-4 rounded-xl font-semibold text-lg border border-blue-200 hover:border-blue-300 transition-all duration-300"
+//                     >
+//                       View Members
+//                     </motion.button>
+//                   </Link>
+//                 </div>
+//               </motion.div>
+//             </AnimatedSection>
+
+//             <AnimatedSection direction="left" delay={0.3}>
+//               <div className="relative">
+//                 <div className="absolute -top-4 -right-4 w-32 h-32 bg-yellow-400 rounded-full blur-3xl opacity-30 animate-pulse" />
+//                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-400 rounded-full blur-3xl opacity-30 animate-pulse" />
+//                 <MembershipCounter />
+//               </div>
+//             </AnimatedSection>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Chairman Section */}
+//       <section id="chairman" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+//         <div className="container mx-auto px-4">
+//           <ChairmanCard />
+//         </div>
+//       </section>
+
+//       {/* Features Section */}
+//       <section className="py-20 bg-white">
+//         <div className="container mx-auto px-4">
+//           <AnimatedSection>
+//             <div className="text-center mb-16">
+//               <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+//                 Our Mission & Vision
+//               </h2>
+//               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+//                 We are committed to creating a developed Bharat through community empowerment,
+//                 sustainable development, and inclusive growth.
+//               </p>
+//             </div>
+//           </AnimatedSection>
+
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//             {features.map((feature, index) => (
+//               <AnimatedSection key={index} delay={index * 0.1}>
+//                 <motion.div
+//                   whileHover={{ y: -10, transition: { duration: 0.3 } }}
+//                   className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+//                 >
+//                   <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6`}>
+//                     <div className="text-white text-2xl">
+//                       {feature.icon}
+//                     </div>
+//                   </div>
+//                   <h3 className="text-2xl font-bold mb-4 text-gray-800">
+//                     {feature.title}
+//                   </h3>
+//                   <p className="text-gray-600">
+//                     {feature.description}
+//                   </p>
+//                 </motion.div>
+//               </AnimatedSection>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* CTA Section */}
+//       <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
+//         <div className="container mx-auto px-4 text-center">
+//           <AnimatedSection>
+//             <div className="max-w-4xl mx-auto">
+//               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+//                 Ready to Make a Difference?
+//               </h2>
+//               <p className="text-xl text-blue-100 mb-10">
+//                 Join thousands of changemakers who are transforming communities across India.
+//                 Your journey with Bharat Bikash Abhijan starts here.
+//               </p>
+//               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+//                 <Link href="/register">
+//                   <motion.button
+//                     whileHover={{ scale: 1.05 }}
+//                     whileTap={{ scale: 0.95 }}
+//                     className="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300"
+//                   >
+//                     Register Now
+//                   </motion.button>
+//                 </Link>
+//                 <p className="text-white/80 text-sm max-w-sm">
+//                   * Requires referral from existing senior leader member
+//                 </p>
+//               </div>
+//             </div>
+//           </AnimatedSection>
+//         </div>
+//       </section>
+//     </div>
+//   );
+// }
+
+// 'use client';
+
+// import { motion } from 'framer-motion';
+// import { FaHandshake, FaChartLine, FaUsers, FaFlag, FaLightbulb, FaHeart } from 'react-icons/fa';
+// import MembershipCounter from '@/components/MembershipCounter';
+// import AnimatedSection from '@/components/AnimatedSection';
+// import Link from 'next/link';
+
+// export default function HomePage() {
+//   const features = [
+//     {
+//       icon: <FaHandshake />,
+//       title: 'Community Partnership',
+//       description: 'Building strong community networks for collective growth',
+//       color: 'from-blue-500 to-cyan-500',
+//     },
+//     {
+//       icon: <FaChartLine />,
+//       title: 'Sustainable Development',
+//       description: 'Creating long-term solutions for community challenges',
+//       color: 'from-green-500 to-emerald-500',
+//     },
+//     {
+//       icon: <FaUsers />,
+//       title: 'Leadership Training',
+//       description: 'Developing next-generation community leaders',
+//       color: 'from-purple-500 to-pink-500',
+//     },
+//     {
+//       icon: <FaFlag />,
+//       title: 'National Mission',
+//       description: 'Contributing to the vision of Developed Bharat',
+//       color: 'from-orange-500 to-red-500',
+//     },
+//     {
+//       icon: <FaLightbulb />,
+//       title: 'Innovation Hub',
+//       description: 'Fostering innovative solutions for social issues',
+//       color: 'from-yellow-500 to-amber-500',
+//     },
+//     {
+//       icon: <FaHeart />,
+//       title: 'Social Welfare',
+//       description: 'Implementing impactful welfare programs',
+//       color: 'from-rose-500 to-pink-500',
+//     },
+//   ];
+
+//   return (
+//     <div className="overflow-hidden">
+//       {/* Hero Section */}
+//       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+//         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-green-600/20 z-0" />
+//         <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5 z-0" />
+        
+//         <div className="container mx-auto px-4 relative z-10">
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+//             <AnimatedSection direction="right">
+//               <motion.div
+//                 initial={{ opacity: 0, scale: 0.8 }}
+//                 animate={{ opacity: 1, scale: 1 }}
+//                 transition={{ duration: 0.8 }}
+//                 className="text-center lg:text-left"
+//               >
+//                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+//                   <span className="gradient-text">Bharat Bikas</span>
+//                   <br />
+//                   <span className="text-gray-800">Abhijan</span>
+//                 </h1>
+//                 <p className="text-xl text-gray-600 mb-8 max-w-2xl">
+//                   Empowering communities, transforming lives. Join our national movement for 
+//                   sustainable development and social empowerment across India.
+//                 </p>
+//                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+//                   <Link href="/register">
+//                     <motion.button
+//                       whileHover={{ scale: 1.05 }}
+//                       whileTap={{ scale: 0.95 }}
+//                       className="bg-gradient-to-r from-blue-600 to-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+//                     >
+//                       Join Now
+//                     </motion.button>
+//                   </Link>
+//                   <Link href="/members">
+//                     <motion.button
+//                       whileHover={{ scale: 1.05 }}
+//                       whileTap={{ scale: 0.95 }}
+//                       className="glass-effect px-8 py-4 rounded-xl font-semibold text-lg border border-blue-200 hover:border-blue-300 transition-all duration-300"
+//                     >
+//                       View Members
+//                     </motion.button>
+//                   </Link>
+//                 </div>
+//               </motion.div>
+//             </AnimatedSection>
+
+//             <AnimatedSection direction="left" delay={0.3}>
+//               <div className="relative">
+//                 <div className="absolute -top-4 -right-4 w-32 h-32 bg-yellow-400 rounded-full blur-3xl opacity-30 animate-pulse" />
+//                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-400 rounded-full blur-3xl opacity-30 animate-pulse" />
+//                 <MembershipCounter />
+//               </div>
+//             </AnimatedSection>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Features Section */}
+//       <section className="py-20 bg-white">
+//         <div className="container mx-auto px-4">
+//           <AnimatedSection>
+//             <div className="text-center mb-16">
+//               <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+//                 Our Mission & Vision
+//               </h2>
+//               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+//                 We are committed to creating a developed Bharat through community empowerment,
+//                 sustainable development, and inclusive growth.
+//               </p>
+//             </div>
+//           </AnimatedSection>
+
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//             {features.map((feature, index) => (
+//               <AnimatedSection key={index} delay={index * 0.1}>
+//                 <motion.div
+//                   whileHover={{ y: -10, transition: { duration: 0.3 } }}
+//                   className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+//                 >
+//                   <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6`}>
+//                     <div className="text-white text-2xl">
+//                       {feature.icon}
+//                     </div>
+//                   </div>
+//                   <h3 className="text-2xl font-bold mb-4 text-gray-800">
+//                     {feature.title}
+//                   </h3>
+//                   <p className="text-gray-600">
+//                     {feature.description}
+//                   </p>
+//                 </motion.div>
+//               </AnimatedSection>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* CTA Section */}
+//       <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
+//         <div className="container mx-auto px-4 text-center">
+//           <AnimatedSection>
+//             <div className="max-w-4xl mx-auto">
+//               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+//                 Ready to Make a Difference?
+//               </h2>
+//               <p className="text-xl text-blue-100 mb-10">
+//                 Join thousands of changemakers who are transforming communities across India.
+//                 Your journey with Bharat Bikas Abhijan starts here.
+//               </p>
+//               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+//                 <Link href="/register">
+//                   <motion.button
+//                     whileHover={{ scale: 1.05 }}
+//                     whileTap={{ scale: 0.95 }}
+//                     className="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300"
+//                   >
+//                     Register Now
+//                   </motion.button>
+//                 </Link>
+//                 <p className="text-white/80 text-sm max-w-sm">
+//                   * Requires referral from existing senior leader member
+//                 </p>
+//               </div>
+//             </div>
+//           </AnimatedSection>
+//         </div>
+//       </section>
+//     </div>
+//   );
+// }
