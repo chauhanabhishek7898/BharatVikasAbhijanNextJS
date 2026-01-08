@@ -81,7 +81,7 @@ export default function ChairmanCard() {
                   </div>
 
                   {/* Visiting Card */}
-                  <motion.div
+                  {/* <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 }}
@@ -96,7 +96,7 @@ export default function ChairmanCard() {
                         className="object-cover"
                       />
                     </div>
-                  </motion.div>
+                  </motion.div> */}
                 </motion.div>
               </div>
             </div>
@@ -109,9 +109,9 @@ export default function ChairmanCard() {
                 <div className="space-y-6">
                   {/* Odia Message */}
                   <div>
-                    <h4 className="text-xl font-bold mb-3 odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+                    {/* <h4 className="text-xl font-bold mb-3 odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                       ଓଡ଼ିଆ ସନ୍ଦେଶ:
-                    </h4>
+                    </h4> */}
                     <p className="text-gray-700 text-lg leading-relaxed" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                       ଭାରତ ବିକାଶ ଅଭିଯାନ ଏକ ସାମାଜିକ ସଂଘଠନ! ରାଷ୍ଟ୍ରବାଦୀ ନାଗରିକ ଶୃଷ୍ଟି କରି ସେମାନଙ୍କୁ ବିଭିନ୍ନ ଦିଗରେ ଆର୍ଥିକ ସ୍ୱଚ୍ଛଳ କରି ଭାରତ ମା ସେବାରେ ଲଗାଇ ଭାରତ କୁ ଆଗାମୀ ଦିନରେ ବିଶ୍ଵଗୁରୁ କରାଇବା ହିଁ ଆମର ମୁଖ୍ୟ ଏବଂ ଏକମାତ୍ର ଲକ୍ଷ୍ୟ.. ଜୟ ମା ଭାରତୀ...ଜୟ ଜଗନ୍ନାଥ 🙏🏻
                     </p>
@@ -119,9 +119,9 @@ export default function ChairmanCard() {
 
                   {/* English Message */}
                   <div>
-                    <h4 className="text-xl font-bold mb-3 gradient-text">
+                    {/* <h4 className="text-xl font-bold mb-3 gradient-text">
                       English Message:
-                    </h4>
+                    </h4> */}
                     <p className="text-gray-700 text-lg leading-relaxed">
                       Bharat Bikash Abhijan is a social organization. Our main and only goal is to create patriotic citizens, make them financially prosperous in various fields, engage them in the service of Mother India, and make India a world leader in the coming days.. Jay Maa Bharati... Jay Jagannath 🙏🏻
                     </p>
