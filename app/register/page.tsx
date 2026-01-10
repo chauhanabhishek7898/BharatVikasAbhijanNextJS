@@ -69,9 +69,9 @@ export default function RegisterPage() {
         </AnimatedSection>
 
         {/* Registration Form */}
-        <AnimatedSection delay={0.4}>
+        {/* <AnimatedSection delay={0.4}> */}
           <RegistrationForm />
-        </AnimatedSection>
+        {/* </AnimatedSection> */}
 
         {/* Additional Info */}
         <AnimatedSection delay={0.6}>

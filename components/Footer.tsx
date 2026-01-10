@@ -30,6 +30,45 @@ export default function Footer() {
     { name: 'Contact', href: '/contact' },
   ];
 
+  const socialLinks = [
+    { 
+      icon: FaEnvelope, 
+      href: 'mailto:brpalai@gmail.com',
+      label: 'Email',
+      color: 'hover:bg-red-500'
+    },
+    { 
+      icon: FaFacebook, 
+      href: 'https://facebook.com/brpalai',
+      label: 'Facebook',
+      color: 'hover:bg-blue-600'
+    },
+    { 
+      icon: FaTwitter, 
+      href: 'https://twitter.com/brpalai',
+      label: 'Twitter',
+      color: 'hover:bg-sky-500'
+    },
+    { 
+      icon: FaInstagram, 
+      href: 'https://instagram.com/brpalai',
+      label: 'Instagram',
+      color: 'hover:bg-pink-600'
+    },
+    { 
+      icon: FaYoutube, 
+      href: 'https://www.youtube.com/@bhaktisir',
+      label: 'YouTube',
+      color: 'hover:bg-red-600'
+    },
+    { 
+      icon: FaWhatsapp, 
+      href: 'https://wa.me/916371602387',
+      label: 'WhatsApp',
+      color: 'hover:bg-green-600'
+    },
+  ];
+
   return (
     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-12 pb-8">
       <div className="container mx-auto px-4">
@@ -54,17 +93,17 @@ export default function Footer() {
                 <h3 className="text-2xl font-bold">
                   Bharat Bikash <span className="text-yellow-300">Abhijan</span>
                 </h3>
-                <div className="text-xs mt-1 text-gray-300">
+                <div className="text-end text-xs mt-1 text-gray-300">
                   A social welfare initiative
                 </div>
               </div>
             </motion.div>
             
-            <div className="mt-2">
-              <div className="text-sm font-bold odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+            <div className="flex flex-col items-end mt-2">
+              <div className="text-2xl font-bold odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                 ଭାରତ ବିକାଶ ଅଭିଯାନ
               </div>
-              <div className="text-xs text-gray-300" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+              <div className="text-end text-xs text-gray-300" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                 ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
               </div>
             </div>
@@ -73,7 +112,7 @@ export default function Footer() {
               Empowering communities, transforming lives. Join us in the mission for a developed Bharat.
             </p>
             <div className="flex space-x-4">
-              {[FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaWhatsapp].map((Icon, index) => (
+              {/* {[FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaWhatsapp].map((Icon, index) => (
                 <motion.a
                   key={index}
                   href="#"
@@ -82,7 +121,22 @@ export default function Footer() {
                 >
                   <Icon className="text-lg" />
                 </motion.a>
-              ))}
+              ))} */}
+
+              {socialLinks.map((link, index) => (
+          <motion.a
+            key={index}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.label}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.95 }}
+            className={`w-12 h-12 rounded-full bg-white/10 ${link.color} flex items-center justify-center transition-all duration-300 cursor-pointer`}
+          >
+            <link.icon className="text-xl" />
+          </motion.a>
+        ))}
             </div>
           </div>
 
@@ -136,14 +190,14 @@ export default function Footer() {
                 <div className="p-2 bg-blue-500/20 rounded-lg">
                   <FaMapMarkerAlt className="text-blue-400 text-xl" />
                 </div>
-                <span className="text-gray-300">New Delhi, India</span>
+                <span className="text-gray-300">Plot No.-629, Sahid Nagar, Bhubaneswar-751007, India</span>
               </div>
               
               <div className="flex items-center space-x-3">
                 <div className="p-2 bg-red-500/20 rounded-lg">
                   <FaEnvelope className="text-red-400 text-xl" />
                 </div>
-                <span className="text-gray-300">info@bbaindia.org</span>
+                <span className="text-gray-300">brpalai@gmail.com</span>
               </div>
             </div>
           </div>

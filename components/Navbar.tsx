@@ -78,8 +78,14 @@ export default function Navbar() {
                 />
               </div>
               <div className="text-white">
-                <div className="font-bold text-xl">Bharat Bikash</div>
-                <div className="text-sm text-yellow-300">Abhijan</div>
+                {/* <div className="font-bold text-xl">Bharat Bikash Abhijan</div>
+                <div className="text-sm text-yellow-300">Abhijan</div> */}
+                <h3 className="text-2xl font-bold">
+                  Bharat Bikash <span className="text-yellow-300">Abhijan</span>
+                </h3>
+                <div className="text-end text-xs mt-1 text-gray-300">
+                  A social welfare initiative
+                </div>
               </div>
             </Link>
           </motion.div>
@@ -87,10 +93,10 @@ export default function Navbar() {
           {/* Tagline - Visible on desktop */}
           <div className="hidden md:block text-center">
             <div className="text-white font-semibold">
-              <div className="text-sm odiya-gradient font-bold" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+              <div className="text-2xl odiya-gradient font-bold" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                 ଭାରତ ବିକାଶ ଅଭିଯାନ
               </div>
-              <div className="text-xs mt-1" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+              <div className="text-xs text-end mt-1" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                 ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
               </div>
             </div>

@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function ChairmanCard() {
   return (
-    <AnimatedSection>
+    // <AnimatedSection>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
@@ -153,12 +153,12 @@ export default function ChairmanCard() {
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="font-bold">Bharat Bikash Abhijan</div>
-                    <div className="text-sm opacity-90">Contact: 6371602387</div>
+                    <div className="text-xl font-bold">Bharat Bikash Abhijan</div>
+                    <div className="text-sm text-end opacity-90">A Social Welfare Initiative</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm opacity-90">SEBA ENTERPRISES</div>
-                    <div className="text-xs opacity-75">A Social Welfare Initiative</div>
+                    <div className="text-xl opacity-90">SEBA ENTERPRISES</div>
+                    <div className="text-xs opacity-75">Contact: 6371602387</div>
                   </div>
                 </div>
               </motion.div>
@@ -166,7 +166,7 @@ export default function ChairmanCard() {
           </div>
         </div>
       </div>
-    </AnimatedSection>
+    // </AnimatedSection>
   );
 }
 

@@ -24,14 +24,14 @@ export default function ContactPage() {
     {
       icon: <FaEnvelope />,
       title: 'Email',
-      details: ['info@bbaindia.org'],
-      link: 'mailto:info@bbaindia.org',
+      details: ['brpalai@gmail.com'],
+      link: 'mailto:brpalai@gmail.com',
       color: 'from-red-500 to-pink-500',
     },
     {
       icon: <FaMapMarkerAlt />,
       title: 'Address',
-      details: ['New Delhi, India', 'SEBA ENTERPRISES'],
+      details: ['Plot No.-629, Sahid Nagar, Bhubaneswar-751007, India', 'SEBA ENTERPRISES'],
       link: '#',
       color: 'from-blue-500 to-cyan-500',
     },
@@ -95,6 +95,11 @@ export default function ContactPage() {
                     ))}
                   </div>
                   {info.title === 'Phone Number' && (
+                    <div className="mt-4 text-sm opacity-90">
+                      SEBA ENTERPRISES
+                    </div>
+                  )}
+                    {info.title === 'WhatsApp' && (
                     <div className="mt-4 text-sm opacity-90">
                       SEBA ENTERPRISES
                     </div>
@@ -210,7 +215,7 @@ export default function ContactPage() {
               <div className="h-64 bg-gradient-to-r from-blue-100 to-green-100 rounded-lg flex items-center justify-center">
                 <div className="text-center">
                   <FaMapMarkerAlt className="text-4xl text-blue-500 mx-auto mb-4" />
-                  <h4 className="text-xl font-bold text-gray-800">New Delhi, India</h4>
+                  <h4 className="text-xl font-bold text-gray-800">Plot No.-629, Sahid Nagar, Bhubaneswar-751007, India</h4>
                   <p className="text-gray-600 mt-2">SEBA ENTERPRISES</p>
                   <p className="text-gray-500 text-sm mt-1">Contact: 6371602387</p>
                 </div>

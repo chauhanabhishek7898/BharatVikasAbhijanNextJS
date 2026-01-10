@@ -77,20 +77,66 @@ export default function HomePage() {
                   </div>
                 </div> */}
 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-                  <span className="gradient-text">Bharat Bikash</span>
+
+
+
+<div className="flex mb-6">
+  <div className="flex flex-col items-end">
+    <div 
+      className="text-5xl font-bold odiya-gradient text-right" 
+      style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}
+    >
+      Bharat Bikash Abhijan
+    </div>
+    <div 
+      className="text-lg text-gray-700 mt-2 text-right" 
+      style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}
+    >
+      A social welfare initiative
+    </div>
+  </div>
+</div>
+
+{/* Odia Text - Same alignment */}
+<div className="flex mb-6">
+  <div className="flex flex-col items-end">
+    <div 
+      className="text-5xl font-bold odiya-gradient text-right" 
+      style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}
+    >
+      ଭାରତ ବିକାଶ ଅଭିଯାନ
+    </div>
+    <div 
+      className="text-lg text-gray-700 mt-2 text-right" 
+      style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}
+    >
+      ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
+    </div>
+  </div>
+</div>
+
+                {/* <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+                  <span className="gradient-text">Bharat Bikash Abhijan</span>
                   <br />
-                  <span className="text-gray-800">Abhijan</span>
-                </h1>
-                
+                  <span className="text-gray-800">A social welfare initiative</span>
+                </h1> */}
+                {/* <div className="text-end text-xs mt-1 text-gray-300">
+                  A social welfare initiative
+                </div> */}
                 {/* Tagline */}
-                <div className="mb-6">
-                  <div className="text-2xl font-bold odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+                {/* <div className="mb-6">
+                  <div className="text-5xl font-bold odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                     ଭାରତ ବିକାଶ ଅଭିଯାନ
                   </div>
-                  <div className="text-lg text-gray-700 mt-2" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+                  <div className="text-lg text-end text-gray-700 mt-2" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                     ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
                   </div>
+                </div> */}
+
+
+
+
+                 <div className="mb-6">
                   <div className="text-xl text-gray-600 mt-4">
                     A social welfare initiative for national development
                   </div>
