@@ -186,8 +186,8 @@ export default function HomePage() {
 
             <AnimatedSection direction="left" delay={0.3}>
               <div className="relative">
-                <div className="absolute -top-4 -right-4 w-32 h-32 bg-yellow-400 rounded-full blur-3xl opacity-30 animate-pulse" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-400 rounded-full blur-3xl opacity-30 animate-pulse" />
+                {/* <div className="absolute -top-4 -right-4 w-32 h-32 bg-yellow-400 rounded-full blur-3xl opacity-30 animate-pulse" />
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-400 rounded-full blur-3xl opacity-30 animate-pulse" /> */}
                 <MembershipCounter />
               </div>
             </AnimatedSection>
