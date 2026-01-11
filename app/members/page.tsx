@@ -191,7 +191,7 @@ export default function MembersPage() {
                         {/* Header with Role Badge */}
                         <div className="flex justify-between items-start mb-4">
                           <div className="flex items-center">
-                            <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-green-500">
+                            {/* <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-green-500">
                               <div className="w-full h-full flex items-center justify-center">
                                 <div className="relative w-12 h-12">
                                   <Image
@@ -202,8 +202,8 @@ export default function MembersPage() {
                                   />
                                 </div>
                               </div>
-                            </div>
-                            <div className="ml-4">
+                            </div> */}
+                            <div className="">
                               <h3 className="font-bold text-xl">{member.name}</h3>
                               <p className="text-gray-600">{member.city}, {member.state}</p>
                             </div>
