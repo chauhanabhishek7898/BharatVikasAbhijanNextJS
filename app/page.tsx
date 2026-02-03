@@ -93,7 +93,7 @@ export default function HomePage() {
                       className={`text-right mt-2 ${isSmallScreen ? 'text-sm' : 'text-lg'} text-gray-700 whitespace-nowrap`}
                       style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}
                     >
-                      A social welfare initiative
+                      A social welfare initiative...
                     </div>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ export default function HomePage() {
                 {/* Description */}
                 <div className="mb-6">
                   <div className={`${isSmallScreen ? 'text-base' : 'text-xl'} text-gray-600 mt-4`}>
-                    A social welfare initiative for national development
+                    Social Welfare Implementing impactful welfare programmes.
                   </div>
                 </div>
 
@@ -129,11 +129,24 @@ export default function HomePage() {
                 </p>
                 
                 {/* Contact Info */}
-                <div className="mb-8 p-4 bg-blue-50 rounded-xl inline-block w-full max-w-md">
+                <div className="flex justify-between mb-8 p-4 bg-blue-50 rounded-xl w-full max-w-md">
                   <div className="flex items-center space-x-3">
                     <FaPhone className={`text-green-600 ${isSmallScreen ? 'text-lg' : 'text-xl'}`} />
                     <div className="min-w-0">
                       <div className={`font-bold text-gray-800 ${isSmallScreen ? 'text-sm' : 'text-base'}`}>Contact Number:</div>
+                      <a href="tel:6371602387" className={`${isSmallScreen ? 'text-xl' : 'text-2xl'} font-bold gradient-text hover:underline whitespace-nowrap block`}>
+                        7750006089
+                      </a>
+                      <div className={`text-gray-600 ${isSmallScreen ? 'text-xs' : 'text-sm'}`}>BBA</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-3">
+                    <FaPhone className={`text-green-600 ${isSmallScreen ? 'text-lg' : 'text-xl'}`} />
+                    <div className="min-w-0">
+                      <div className={`font-bold text-gray-800 ${isSmallScreen ? 'text-sm' : 'text-base'}`}>
+                        Contact Number:
+                        </div>
                       <a href="tel:6371602387" className={`${isSmallScreen ? 'text-xl' : 'text-2xl'} font-bold gradient-text hover:underline whitespace-nowrap block`}>
                         6371602387
                       </a>

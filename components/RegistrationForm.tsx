@@ -1,91 +1,90 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaUser, FaEnvelope, FaPhone, FaMapMarker, FaCalendar, FaLock, FaIdCard } from 'react-icons/fa';
+import { 
+  FaUser, FaEnvelope, FaPhone, FaMapMarker, FaCalendar, 
+  FaLock, FaIdCard, FaVenusMars, FaGraduationCap, 
+  FaBriefcase, FaTint, FaHashtag, FaLandmark, 
+  FaBuilding, FaGlobeAsia, FaWhatsapp 
+} from 'react-icons/fa';
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
+    // Personal Information
     name: '',
-    email: '',
-    phone: '',
-    address: '',
-    city: '',
-    state: '',
-    pincode: '',
+    gender: '',
     dateOfBirth: '',
+    age: '',
+    religion: '',
+    caste: '',
+    educationalQualification: '',
+    occupation: '',
+    bloodGroup: '',
+    
+    // Address Information
+    wardNo: '',
+    boothNo: '',
+    panchayat: '',
+    zillaparisadZone: '',
+    block: '',
+    constituency: '',
+    district: '',
+    state: '',
+    address: '',
+    pincode: '',
+    
+    // Contact Information
+    mobileNo: '',
+    whatsappNo: '',
+    email: '',
+    
+    // Referral Information
     referralId: '',
     referralName: '',
+    
+    // Account Information
     password: '',
     confirmPassword: '',
-    role: 'member', // Default role is member
+    role: 'member',
   });
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
+  // Calculate age when date of birth changes
+  useEffect(() => {
+    if (formData.dateOfBirth) {
+      const birthDate = new Date(formData.dateOfBirth);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      
+      setFormData(prev => ({
+        ...prev,
+        age: age.toString()
+      }));
+    }
+  }, [formData.dateOfBirth]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
-
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setMessage(null);
-
-  //   if (formData.password !== formData.confirmPassword) {
-  //     setMessage({ type: 'error', text: 'Passwords do not match' });
-  //     setLoading(false);
-  //     return;
-  //   }
-
-  //   try {
-  //     const response = await fetch('/api/register', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify(formData),
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (data.success) {
-  //       setMessage({
-  //         type: 'success',
-  //         text: `Registration successful! Your ID: ${data.registrationId}. Status: Inactive - Admin will activate your account.`,
-  //       });
-  //       setFormData({
-  //         name: '',
-  //         email: '',
-  //         phone: '',
-  //         address: '',
-  //         city: '',
-  //         state: '',
-  //         pincode: '',
-  //         dateOfBirth: '',
-  //         referralId: '',
-  //         referralName: '',
-  //         password: '',
-  //         confirmPassword: '',
-  //         role: 'member',
-  //       });
-  //     } else {
-  //       setMessage({ type: 'error', text: data.message });
-  //     }
-  //   } catch (error) {
-  //     setMessage({ type: 'error', text: 'Registration failed. Please try again.' });
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setMessage(null);
 
+    // Validation
     if (formData.password !== formData.confirmPassword) {
       setMessage({ type: 'error', text: 'Passwords do not match' });
       setLoading(false);
@@ -95,26 +94,34 @@ export default function RegistrationForm() {
     // Prepare data for API
     const submissionData = {
       name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      address: formData.address,
-      city: formData.city,
-      state: formData.state,
-      pincode: formData.pincode,
+      gender: formData.gender,
       dateOfBirth: formData.dateOfBirth,
+      age: parseInt(formData.age),
+      religion: formData.religion,
+      caste: formData.caste,
+      educationalQualification: formData.educationalQualification,
+      occupation: formData.occupation,
+      bloodGroup: formData.bloodGroup,
+      wardNo: formData.wardNo,
+      boothNo: formData.boothNo,
+      panchayat: formData.panchayat,
+      zillaparisadZone: formData.zillaparisadZone,
+      block: formData.block,
+      constituency: formData.constituency,
+      district: formData.district,
+      state: formData.state,
+      address: formData.address,
+      pincode: formData.pincode,
+      mobileNo: formData.mobileNo,
+      whatsappNo: formData.whatsappNo,
+      email: formData.email,
       referralId: formData.referralId,
       referralName: formData.referralName,
       password: formData.password,
-      role: formData.role, // Only role field
-      // DO NOT send userId, roleId, registrationId - they will be auto-generated
+      role: formData.role,
     };
 
-    console.log('Submitting data:', submissionData); // Debug log
-
-    console.log('Sending to API:', {
-     ...submissionData,
-     password: '[HIDDEN]' // Don't log actual password
-    }); 
+    console.log('Submitting data:', submissionData);
 
     try {
       const response = await fetch('/api/register', {
@@ -124,7 +131,7 @@ export default function RegistrationForm() {
       });
 
       const data = await response.json();
-      console.log('Registration response:', data); // Debug log
+      console.log('Registration response:', data);
 
       if (data.success) {
         setMessage({
@@ -134,13 +141,27 @@ export default function RegistrationForm() {
         // Reset form
         setFormData({
           name: '',
-          email: '',
-          phone: '',
-          address: '',
-          city: '',
-          state: '',
-          pincode: '',
+          gender: '',
           dateOfBirth: '',
+          age: '',
+          religion: '',
+          caste: '',
+          educationalQualification: '',
+          occupation: '',
+          bloodGroup: '',
+          wardNo: '',
+          boothNo: '',
+          panchayat: '',
+          zillaparisadZone: '',
+          block: '',
+          constituency: '',
+          district: '',
+          state: '',
+          address: '',
+          pincode: '',
+          mobileNo: '',
+          whatsappNo: '',
+          email: '',
           referralId: '',
           referralName: '',
           password: '',
@@ -158,20 +179,275 @@ export default function RegistrationForm() {
     }
   };
 
-  const formFields = [
-    { name: 'name', label: 'Full Name', type: 'text', icon: <FaUser />, required: true },
-    { name: 'email', label: 'Email Address', type: 'email', icon: <FaEnvelope />, required: true },
-    { name: 'phone', label: 'Phone Number', type: 'tel', icon: <FaPhone />, required: true },
-    { name: 'address', label: 'Address', type: 'textarea', icon: <FaMapMarker />, required: true },
-    { name: 'city', label: 'City', type: 'text', icon: <FaMapMarker />, required: true },
-    { name: 'state', label: 'State', type: 'text', icon: <FaMapMarker />, required: true },
-    { name: 'pincode', label: 'Pincode', type: 'text', icon: <FaMapMarker />, required: true },
-    { name: 'dateOfBirth', label: 'Date of Birth', type: 'date', icon: <FaCalendar />, required: true },
-    { name: 'referralId', label: 'Senior Leader ID', type: 'text', icon: <FaIdCard />, required: true },
-    { name: 'referralName', label: 'Senior Leader Name', type: 'text', icon: <FaUser />, required: true },
-    { name: 'password', label: 'Password', type: 'password', icon: <FaLock />, required: true },
-    { name: 'confirmPassword', label: 'Confirm Password', type: 'password', icon: <FaLock />, required: true },
-    { name: 'role', label: 'Role', type: 'hidden', icon: <FaUser />, required: false, defaultValue: 'member' },
+  // Field configuration with bilingual labels
+  const formFields:any = [
+    // Personal Information Section
+    { 
+      section: 'Personal Information',
+      fields: [
+        { 
+          name: 'name', 
+          labelEng: 'Full Name', 
+          labelOdia: 'ସମ୍ପୂର୍ଣ ନାମ',
+          type: 'text', 
+          icon: <FaUser />, 
+          required: true 
+        },
+        { 
+          name: 'gender', 
+          labelEng: 'Gender', 
+          labelOdia: 'ଲିଙ୍ଗ',
+          type: 'select', 
+          icon: <FaVenusMars />, 
+          required: true,
+          options: [
+            { value: '', label: 'Select Gender' },
+            { value: 'male', label: 'Male' },
+            { value: 'female', label: 'Female' },
+            { value: 'other', label: 'Other' }
+          ]
+        },
+        { 
+          name: 'dateOfBirth', 
+          labelEng: 'Date of Birth', 
+          labelOdia: 'ଜନ୍ମ ତାରିଖ',
+          type: 'date', 
+          icon: <FaCalendar />, 
+          required: true 
+        },
+        { 
+          name: 'age', 
+          labelEng: 'Age', 
+          labelOdia: 'ବୟସ',
+          type: 'number', 
+          icon: <FaUser />, 
+          required: true,
+          readOnly: true 
+        },
+        { 
+          name: 'religion', 
+          labelEng: 'Religion', 
+          labelOdia: 'ଧର୍ମ',
+          type: 'text', 
+          icon: <FaUser />, 
+          required: true 
+        },
+        { 
+          name: 'caste', 
+          labelEng: 'Caste', 
+          labelOdia: 'ଜାତି',
+          type: 'text', 
+          icon: <FaUser />, 
+          required: true 
+        },
+        { 
+          name: 'educationalQualification', 
+          labelEng: 'Educational Qualification', 
+          labelOdia: 'ଶିକ୍ଷାଗତ ଯୋଗ୍ୟତା',
+          type: 'text', 
+          icon: <FaGraduationCap />, 
+          required: true 
+        },
+        { 
+          name: 'occupation', 
+          labelEng: 'Occupation', 
+          labelOdia: 'ବୃତ୍ତି',
+          type: 'text', 
+          icon: <FaBriefcase />, 
+          required: true 
+        },
+        { 
+          name: 'bloodGroup', 
+          labelEng: 'Blood Group', 
+          labelOdia: 'ରକ୍ତ ଗ୍ରୁପ୍',
+          type: 'select', 
+          icon: <FaTint />, 
+          required: true,
+          options: [
+            { value: '', label: 'Select Blood Group' },
+            { value: 'A+', label: 'A+' },
+            { value: 'A-', label: 'A-' },
+            { value: 'B+', label: 'B+' },
+            { value: 'B-', label: 'B-' },
+            { value: 'AB+', label: 'AB+' },
+            { value: 'AB-', label: 'AB-' },
+            { value: 'O+', label: 'O+' },
+            { value: 'O-', label: 'O-' },
+            { value: 'unknown', label: 'Unknown' }
+          ]
+        },
+      ]
+    },
+    // Address Information Section
+    { 
+      section: 'Address Information',
+      fields: [
+        { 
+          name: 'wardNo', 
+          labelEng: 'Ward No.', 
+          labelOdia: 'ୱାର୍ଡ ନଂ',
+          type: 'text', 
+          icon: <FaHashtag />, 
+          required: true 
+        },
+        { 
+          name: 'boothNo', 
+          labelEng: 'Booth No.', 
+          labelOdia: 'ବୁଥ ନଂ',
+          type: 'text', 
+          icon: <FaHashtag />, 
+          required: true 
+        },
+        { 
+          name: 'panchayat', 
+          labelEng: 'Panchayat', 
+          labelOdia: 'ପଞ୍ଚାୟତ',
+          type: 'text', 
+          icon: <FaLandmark />, 
+          required: true 
+        },
+        { 
+          name: 'zillaparisadZone', 
+          labelEng: 'Zillaparisad Zone', 
+          labelOdia: 'ଜିଲ୍ଲା ପରିଷଦ ଜୋନ୍',
+          type: 'text', 
+          icon: <FaBuilding />, 
+          required: true 
+        },
+        { 
+          name: 'block', 
+          labelEng: 'Block', 
+          labelOdia: 'ବ୍ଲକ୍',
+          type: 'text', 
+          icon: <FaBuilding />, 
+          required: true 
+        },
+        { 
+          name: 'constituency', 
+          labelEng: 'Constituency', 
+          labelOdia: 'ନିର୍ବାଚନ ମଣ୍ଡଳୀ',
+          type: 'text', 
+          icon: <FaGlobeAsia />, 
+          required: true 
+        },
+        { 
+          name: 'district', 
+          labelEng: 'District', 
+          labelOdia: 'ଜିଲ୍ଲା',
+          type: 'text', 
+          icon: <FaGlobeAsia />, 
+          required: true 
+        },
+        { 
+          name: 'state', 
+          labelEng: 'State', 
+          labelOdia: 'ରାଜ୍ୟ',
+          type: 'text', 
+          icon: <FaGlobeAsia />, 
+          required: true 
+        },
+        { 
+          name: 'address', 
+          labelEng: 'Address', 
+          labelOdia: 'ଠିକାଣା',
+          type: 'textarea', 
+          icon: <FaMapMarker />, 
+          required: true,
+          colSpan: 'full' 
+        },
+        { 
+          name: 'pincode', 
+          labelEng: 'Pincode', 
+          labelOdia: 'ପିନକୋଡ୍',
+          type: 'text', 
+          icon: <FaMapMarker />, 
+          required: true 
+        },
+      ]
+    },
+    // Contact Information Section
+    { 
+      section: 'Contact Information',
+      fields: [
+        { 
+          name: 'mobileNo', 
+          labelEng: 'Mobile No.', 
+          labelOdia: 'ମୋବାଇଲ ନଂ',
+          type: 'tel', 
+          icon: <FaPhone />, 
+          required: true 
+        },
+        { 
+          name: 'whatsappNo', 
+          labelEng: 'WhatsApp No.', 
+          labelOdia: 'ୱାଟ୍ସଆପ୍ ନଂ',
+          type: 'tel', 
+          icon: <FaWhatsapp />, 
+          required: true 
+        },
+        { 
+          name: 'email', 
+          labelEng: 'Email ID', 
+          labelOdia: 'ଇମେଲ ଆଇଡି',
+          type: 'email', 
+          icon: <FaEnvelope />, 
+          required: true 
+        },
+      ]
+    },
+    // Referral Information Section
+    { 
+      section: 'Referral Information',
+      fields: [
+        { 
+          name: 'referralId', 
+          labelEng: 'Senior Leader ID', 
+          labelOdia: 'ବରିଷ୍ଠ ନେତା ଆଇଡି',
+          type: 'text', 
+          icon: <FaIdCard />, 
+          required: true 
+        },
+        { 
+          name: 'referralName', 
+          labelEng: 'Senior Leader Name', 
+          labelOdia: 'ବରିଷ୍ଠ ନେତା ନାମ',
+          type: 'text', 
+          icon: <FaUser />, 
+          required: true 
+        },
+      ]
+    },
+    // Account Information Section
+    { 
+      section: 'Account Information',
+      fields: [
+        { 
+          name: 'password', 
+          labelEng: 'Password', 
+          labelOdia: 'ପାସୱାର୍ଡ',
+          type: 'password', 
+          icon: <FaLock />, 
+          required: true 
+        },
+        { 
+          name: 'confirmPassword', 
+          labelEng: 'Confirm Password', 
+          labelOdia: 'ପାସୱାର୍ଡ ନିଶ୍ଚିତ କରନ୍ତୁ',
+          type: 'password', 
+          icon: <FaLock />, 
+          required: true 
+        },
+        { 
+          name: 'role', 
+          labelEng: 'Role', 
+          labelOdia: 'ଭୂମିକା',
+          type: 'hidden', 
+          icon: <FaUser />, 
+          required: false,
+          defaultValue: 'member' 
+        },
+      ]
+    },
   ];
 
   return (
@@ -179,11 +455,11 @@ export default function RegistrationForm() {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden"
+      className="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden"
     >
       <div className="md:flex">
         {/* Left Side - Form */}
-        <div className="md:w-2/3 p-8">
+        <div className="md:w-2/3 p-8 overflow-y-auto max-h-screen">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold gradient-text">Join Bharat Bikash Abhijan</h2>
             <p className="text-gray-600 mt-2">Registration with Senior Leader Referral Required</p>
@@ -204,65 +480,95 @@ export default function RegistrationForm() {
             </motion.div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {formFields.map((field, index) => (
-                <motion.div
-                  key={field.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className={
-                    field.type === 'hidden' 
-                      ? 'hidden' 
-                      : field.name === 'address' 
-                        ? 'md:col-span-2' 
-                        : ''
-                  }
-                >
-                  {field.type === 'hidden' ? (
-                    <input
-                      type="hidden"
-                      name={field.name}
-                      value={field.defaultValue || ''}
-                    />
-                  ) : (
-                    <>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {field.label}
-                        {field.required && <span className="text-red-500 ml-1">*</span>}
-                      </label>
-                      <div className="relative">
-                        <div className="absolute left-3 top-3 text-gray-400">
-                          {field.icon}
-                        </div>
-                        {field.type === 'textarea' ? (
-                          <textarea
-                            name={field.name}
-                            value={(formData as any)[field.name]}
-                            onChange={handleChange}
-                            required={field.required}
-                            className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-                            rows={3}
-                            placeholder={`Enter ${field.label.toLowerCase()}`}
-                          />
-                        ) : (
-                          <input
-                            type={field.type}
-                            name={field.name}
-                            value={(formData as any)[field.name]}
-                            onChange={handleChange}
-                            required={field.required}
-                            className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-                            placeholder={`Enter ${field.label.toLowerCase()}`}
-                          />
-                        )}
-                      </div>
-                    </>
-                  )}
-                </motion.div>
-              ))}
-            </div>
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {formFields.map((section:any, sectionIndex:any) => (
+              <motion.div
+                key={section.section}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: sectionIndex * 0.1 }}
+                className="border border-gray-200 rounded-xl p-6 bg-gray-50"
+              >
+                <h3 className="text-xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-300">
+                  {section.section}
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {section.fields.map((field:any, fieldIndex:any) => (
+                    <motion.div
+                      key={field.name}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: (sectionIndex * 0.05) + (fieldIndex * 0.03) }}
+                      className={field.colSpan === 'full' ? 'md:col-span-2' : ''}
+                    >
+                      {field.type === 'hidden' ? (
+                        <input
+                          type="hidden"
+                          name={field.name}
+                          value={field.defaultValue || ''}
+                        />
+                      ) : (
+                        <>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            <span className="block">{field.labelEng}</span>
+                            <span className="block text-xs text-gray-500 font-normal">
+                              {field.labelOdia}
+                            </span>
+                            {field.required && <span className="text-red-500 ml-1">*</span>}
+                          </label>
+                          
+                          <div className="relative">
+                            <div className="absolute left-3 top-3 text-gray-400">
+                              {field.icon}
+                            </div>
+                            
+                            {field.type === 'textarea' ? (
+                              <textarea
+                                name={field.name}
+                                value={(formData as any)[field.name]}
+                                onChange={handleChange}
+                                required={field.required}
+                                className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                                rows={3}
+                                placeholder={`Enter ${field.labelEng.toLowerCase()}`}
+                              />
+                            ) : field.type === 'select' ? (
+                              <select
+                                name={field.name}
+                                value={(formData as any)[field.name]}
+                                onChange={handleChange}
+                                required={field.required}
+                                className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 appearance-none bg-white"
+                              >
+                                {field.options?.map((option:any) => (
+                                  <option key={option.value} value={option.value}>
+                                    {option.label}
+                                  </option>
+                                ))}
+                              </select>
+                            ) : (
+                              <input
+                                type={field.type}
+                                name={field.name}
+                                value={(formData as any)[field.name]}
+                                onChange={handleChange}
+                                required={field.required}
+                                readOnly={field.readOnly}
+                                className={`w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                                  field.readOnly ? 'bg-gray-100' : 'bg-white'
+                                }`}
+                                placeholder={`Enter ${field.labelEng.toLowerCase()}`}
+                              />
+                            )}
+                          </div>
+                        </>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
 
             <motion.button
               whileHover={{ scale: 1.02 }}
@@ -354,6 +660,16 @@ export default function RegistrationForm() {
                 <strong>Default Status:</strong> Inactive
               </p>
             </div>
+
+            <div className="mt-6 p-4 bg-white/10 rounded-xl">
+              <h4 className="font-bold mb-2">Required Documents:</h4>
+              <ul className="text-sm space-y-1">
+                <li>• Valid ID Proof</li>
+                <li>• Address Proof</li>
+                <li>• Recent Photograph</li>
+                <li>• Age Proof</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -381,6 +697,7 @@ export default function RegistrationForm() {
 //     referralName: '',
 //     password: '',
 //     confirmPassword: '',
+//     role: 'member', // Default role is member
 //   });
 
 //   const [loading, setLoading] = useState(false);
@@ -404,20 +721,46 @@ export default function RegistrationForm() {
 //       return;
 //     }
 
+//     // Prepare data for API
+//     const submissionData = {
+//       name: formData.name,
+//       email: formData.email,
+//       phone: formData.phone,
+//       address: formData.address,
+//       city: formData.city,
+//       state: formData.state,
+//       pincode: formData.pincode,
+//       dateOfBirth: formData.dateOfBirth,
+//       referralId: formData.referralId,
+//       referralName: formData.referralName,
+//       password: formData.password,
+//       role: formData.role, // Only role field
+//       // DO NOT send userId, roleId, registrationId - they will be auto-generated
+//     };
+
+//     console.log('Submitting data:', submissionData); // Debug log
+
+//     console.log('Sending to API:', {
+//      ...submissionData,
+//      password: '[HIDDEN]' // Don't log actual password
+//     }); 
+ 
 //     try {
 //       const response = await fetch('/api/register', {
 //         method: 'POST',
 //         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify(formData),
+//         body: JSON.stringify(submissionData),
 //       });
 
 //       const data = await response.json();
+//       console.log('Registration response:', data); // Debug log
 
 //       if (data.success) {
 //         setMessage({
 //           type: 'success',
-//           text: `Registration successful! Your ID: ${data.registrationId}`,
+//           text: `Registration successful! Your User ID: ${data.userId}, Registration ID: ${data.registrationId}. Status: Inactive - Admin will activate your account.`,
 //         });
+//         // Reset form
 //         setFormData({
 //           name: '',
 //           email: '',
@@ -431,11 +774,13 @@ export default function RegistrationForm() {
 //           referralName: '',
 //           password: '',
 //           confirmPassword: '',
+//           role: 'member',
 //         });
 //       } else {
 //         setMessage({ type: 'error', text: data.message });
 //       }
 //     } catch (error) {
+//       console.error('Registration error:', error);
 //       setMessage({ type: 'error', text: 'Registration failed. Please try again.' });
 //     } finally {
 //       setLoading(false);
@@ -455,6 +800,7 @@ export default function RegistrationForm() {
 //     { name: 'referralName', label: 'Senior Leader Name', type: 'text', icon: <FaUser />, required: true },
 //     { name: 'password', label: 'Password', type: 'password', icon: <FaLock />, required: true },
 //     { name: 'confirmPassword', label: 'Confirm Password', type: 'password', icon: <FaLock />, required: true },
+//     { name: 'role', label: 'Role', type: 'hidden', icon: <FaUser />, required: false, defaultValue: 'member' },
 //   ];
 
 //   return (
@@ -468,8 +814,9 @@ export default function RegistrationForm() {
 //         {/* Left Side - Form */}
 //         <div className="md:w-2/3 p-8">
 //           <div className="text-center mb-8">
-//             <h2 className="text-3xl font-bold gradient-text">Join Bharat Bikas Abhijan</h2>
+//             <h2 className="text-3xl font-bold gradient-text">Join Bharat Bikash Abhijan</h2>
 //             <p className="text-gray-600 mt-2">Registration with Senior Leader Referral Required</p>
+//             <p className="text-sm text-gray-500 mt-1">Default Role: Member | Status: Inactive (Admin will activate)</p>
 //           </div>
 
 //           {message && (
@@ -494,38 +841,54 @@ export default function RegistrationForm() {
 //                   initial={{ opacity: 0, y: 20 }}
 //                   animate={{ opacity: 1, y: 0 }}
 //                   transition={{ delay: index * 0.1 }}
-//                   className={field.name === 'address' ? 'md:col-span-2' : ''}
+//                   className={
+//                     field.type === 'hidden' 
+//                       ? 'hidden' 
+//                       : field.name === 'address' 
+//                         ? 'md:col-span-2' 
+//                         : ''
+//                   }
 //                 >
-//                   <label className="block text-sm font-medium text-gray-700 mb-2">
-//                     {field.label}
-//                     {field.required && <span className="text-red-500 ml-1">*</span>}
-//                   </label>
-//                   <div className="relative">
-//                     <div className="absolute left-3 top-3 text-gray-400">
-//                       {field.icon}
-//                     </div>
-//                     {field.type === 'textarea' ? (
-//                       <textarea
-//                         name={field.name}
-//                         value={(formData as any)[field.name]}
-//                         onChange={handleChange}
-//                         required={field.required}
-//                         className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-//                         rows={3}
-//                         placeholder={`Enter ${field.label.toLowerCase()}`}
-//                       />
-//                     ) : (
-//                       <input
-//                         type={field.type}
-//                         name={field.name}
-//                         value={(formData as any)[field.name]}
-//                         onChange={handleChange}
-//                         required={field.required}
-//                         className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-//                         placeholder={`Enter ${field.label.toLowerCase()}`}
-//                       />
-//                     )}
-//                   </div>
+//                   {field.type === 'hidden' ? (
+//                     <input
+//                       type="hidden"
+//                       name={field.name}
+//                       value={field.defaultValue || ''}
+//                     />
+//                   ) : (
+//                     <>
+//                       <label className="block text-sm font-medium text-gray-700 mb-2">
+//                         {field.label}
+//                         {field.required && <span className="text-red-500 ml-1">*</span>}
+//                       </label>
+//                       <div className="relative">
+//                         <div className="absolute left-3 top-3 text-gray-400">
+//                           {field.icon}
+//                         </div>
+//                         {field.type === 'textarea' ? (
+//                           <textarea
+//                             name={field.name}
+//                             value={(formData as any)[field.name]}
+//                             onChange={handleChange}
+//                             required={field.required}
+//                             className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+//                             rows={3}
+//                             placeholder={`Enter ${field.label.toLowerCase()}`}
+//                           />
+//                         ) : (
+//                           <input
+//                             type={field.type}
+//                             name={field.name}
+//                             value={(formData as any)[field.name]}
+//                             onChange={handleChange}
+//                             required={field.required}
+//                             className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+//                             placeholder={`Enter ${field.label.toLowerCase()}`}
+//                           />
+//                         )}
+//                       </div>
+//                     </>
+//                   )}
 //                 </motion.div>
 //               ))}
 //             </div>
@@ -549,6 +912,13 @@ export default function RegistrationForm() {
 //                 'Complete Registration'
 //               )}
 //             </motion.button>
+
+//             <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+//               <p className="text-sm text-yellow-800 text-center">
+//                 <strong>Note:</strong> After registration, your account will be <strong>inactive</strong>. 
+//                 Admin will activate it after verification. You will receive your User ID via email.
+//               </p>
+//             </div>
 
 //             <p className="text-center text-gray-600 text-sm">
 //               By registering, you agree to our Terms & Conditions
@@ -583,10 +953,34 @@ export default function RegistrationForm() {
 //             </ul>
 
 //             <div className="mt-8 p-4 bg-white/10 rounded-xl">
+//               <h4 className="font-bold mb-2">Registration Process:</h4>
+//               <div className="space-y-2 text-sm">
+//                 <div className="flex items-center">
+//                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mr-2">1</div>
+//                   <span>Submit registration form</span>
+//                 </div>
+//                 <div className="flex items-center">
+//                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mr-2">2</div>
+//                   <span>Account created as <strong>Inactive Member</strong></span>
+//                 </div>
+//                 <div className="flex items-center">
+//                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mr-2">3</div>
+//                   <span>Admin verifies and activates account</span>
+//                 </div>
+//                 <div className="flex items-center">
+//                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mr-2">4</div>
+//                   <span>Receive activation confirmation</span>
+//                 </div>
+//               </div>
+//             </div>
+
+//             <div className="mt-6 p-4 bg-white/10 rounded-xl">
 //               <h4 className="font-bold mb-2">Important Note:</h4>
 //               <p className="text-sm">
 //                 Registration requires a valid Senior Leader referral ID and name.
-//                 Without proper referral, registration cannot be completed.
+//                 <br /><br />
+//                 <strong>Default Role:</strong> Member<br />
+//                 <strong>Default Status:</strong> Inactive
 //               </p>
 //             </div>
 //           </div>

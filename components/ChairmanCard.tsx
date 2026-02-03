@@ -147,7 +147,7 @@ export default function ChairmanCard() {
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-xl font-bold">Bharat Bikash Abhijan</div>
-                    <div className="text-sm text-end opacity-90">A Social Welfare Initiative</div>
+                    <div className="text-sm text-end opacity-90">A Social Welfare Initiative...</div>
                   </div>
                   <div className="text-right">
                     <div className="text-xl opacity-90">SEBA ENTERPRISES</div>
@@ -167,7 +167,7 @@ export default function ChairmanCard() {
                   
                   {/* Line 2: Tagline */}
                   <div className="text-sm opacity-90 text-center">
-                    A Social Welfare Initiative
+                    A Social Welfare Initiative...
                   </div>
                   </div>
                  

@@ -39,13 +39,13 @@ export default function MembershipCounter() {
   };
 
   const tabs = [
-    { 
-      id: 'totalMembers' as CounterType, 
-      label: 'Total Members', 
-      icon: <FaUsers />, 
-      color: 'from-blue-500 to-cyan-500',
-      description: 'All registered members (active + inactive)'
-    },
+    // { 
+    //   id: 'totalMembers' as CounterType, 
+    //   label: 'Total Members', 
+    //   icon: <FaUsers />, 
+    //   color: 'from-blue-500 to-cyan-500',
+    //   description: 'All registered members (active + inactive)'
+    // },
     { 
       id: 'activeMembers' as CounterType, 
       label: 'Active Members', 
@@ -55,18 +55,25 @@ export default function MembershipCounter() {
     },
     { 
       id: 'activeLeaders' as CounterType, 
-      label: 'Active Leaders', 
+      label: 'Leaders', 
       icon: <FaUserTie />, 
       color: 'from-purple-500 to-pink-500',
       description: 'Only active leaders'
     },
-    { 
-      id: 'totalActive' as CounterType, 
-      label: 'Total Active', 
+       { 
+      id: 'totalMembers' as CounterType, 
+      label: 'Total Members', 
       icon: <FaUsers />, 
-      color: 'from-orange-500 to-red-500',
-      description: 'All active users'
+      color: 'from-blue-500 to-cyan-500',
+      description: 'All registered members (active + inactive)'
     },
+    // { 
+    //   id: 'totalActive' as CounterType, 
+    //   label: 'Total Active', 
+    //   icon: <FaUsers />, 
+    //   color: 'from-orange-500 to-red-500',
+    //   description: 'All active users'
+    // },
   ];
 
   return (
@@ -152,7 +159,7 @@ export default function MembershipCounter() {
       </div>
 
       {/* Stats Summary */}
-      <div className="p-4 bg-gray-50 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="p-4 bg-gray-50 grid grid-cols-2 md:grid-cols-3 gap-4">
         {tabs.map((tab) => (
           <div key={tab.id} className="text-center">
             <div className="text-lg font-bold text-gray-800">

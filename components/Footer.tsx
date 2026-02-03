@@ -107,7 +107,7 @@ export default function Footer() {
                   Bharat Bikash <span className="text-yellow-300">Abhijan</span>
                 </h3>
                 <div className={`text-end ${isSmallScreen ? 'text-[10px]' : 'text-xs'} mt-0.5 text-gray-300 whitespace-nowrap`}>
-                  A social welfare initiative
+                  A social welfare initiative...
                 </div>
               </div>
             </motion.div>
