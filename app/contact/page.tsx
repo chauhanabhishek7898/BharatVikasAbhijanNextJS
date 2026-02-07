@@ -187,7 +187,7 @@ export default function ContactPage() {
                     {info.type === 'bva' ? (
                       // Bharat Bikash Abhijan - Tri-color display
                       <div className="flex flex-col gap-1">
-                        <div className="flex items-center justify-center space-x-1">
+                        <div className="flex items-center justify-start space-x-1">
                           <span className="text-orange-500 font-bold text-sm">Bharat</span>
                           <span className="text-white font-bold text-sm">Bikash</span>
                           <span className="text-green-500 font-bold text-sm">Abhijan</span>

@@ -172,7 +172,7 @@ export default function ChairmanCard() {
                     </div>
                     <div className="text-sm text-end opacity-90">A Social Welfare Initiative...</div>
                     <div className="text-sm text-end opacity-75 ">
-                      Contact: 6371602387
+                      Contact: 7750006089
                     </div>
                   </div>
                   <div className="text-right">
@@ -199,7 +199,7 @@ export default function ChairmanCard() {
                       A Social Welfare Initiative...
                     </div>
                     <div className="text-sm opacity-75 text-center">
-                      Contact: 6371602387
+                      Contact: 7750006089
                     </div>
                   </div>
 
