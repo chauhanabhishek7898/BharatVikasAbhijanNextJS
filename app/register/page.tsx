@@ -24,8 +24,11 @@ export default function RegisterPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
               Member Registration
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join Bharat Bikash Abhijan community. Fill in your details below to register.
+            <p className="text-xl bg-slate-400 text-gray-600 p-4 rounded-lg max-w-3xl mx-auto">
+              Join{' '}
+  <span className="text-orange-500">Bharat</span>{' '}
+  <span className="text-white">Bikash</span>{' '}
+  <span className="text-green-600">Abhijan</span>{' '} community. Fill in your details below to register.
               Registration requires valid senior leader referral.
             </p>
           </div>

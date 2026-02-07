@@ -227,7 +227,7 @@ export default function RegistrationForm() {
         { 
           name: 'religion', 
           labelEng: 'Religion', 
-          labelOdia: 'ଧର୍ମ',
+          labelOdia: 'ସମ୍ପ୍ରଦାୟ',
           type: 'text', 
           icon: <FaUser />, 
           required: true 
@@ -259,7 +259,7 @@ export default function RegistrationForm() {
         { 
           name: 'bloodGroup', 
           labelEng: 'Blood Group', 
-          labelOdia: 'ରକ୍ତ ଗ୍ରୁପ୍',
+          labelOdia: 'ରକ୍ତ ଶ୍ରେଣୀ',
           type: 'select', 
           icon: <FaTint />, 
           required: true,
@@ -285,7 +285,7 @@ export default function RegistrationForm() {
         { 
           name: 'wardNo', 
           labelEng: 'Ward No.', 
-          labelOdia: 'ୱାର୍ଡ ନଂ',
+          labelOdia: 'ୱାର୍ଡ ନଂ.',
           type: 'text', 
           icon: <FaHashtag />, 
           required: true 
@@ -293,7 +293,7 @@ export default function RegistrationForm() {
         { 
           name: 'boothNo', 
           labelEng: 'Booth No.', 
-          labelOdia: 'ବୁଥ ନଂ',
+          labelOdia: 'ବୁଥ ନଂ.',
           type: 'text', 
           icon: <FaHashtag />, 
           required: true 
@@ -301,7 +301,7 @@ export default function RegistrationForm() {
         { 
           name: 'panchayat', 
           labelEng: 'Panchayat', 
-          labelOdia: 'ପଞ୍ଚାୟତ',
+          labelOdia: 'ପଂଚାୟତ',
           type: 'text', 
           icon: <FaLandmark />, 
           required: true 
@@ -309,7 +309,7 @@ export default function RegistrationForm() {
         { 
           name: 'zillaparisadZone', 
           labelEng: 'Zillaparisad Zone', 
-          labelOdia: 'ଜିଲ୍ଲା ପରିଷଦ ଜୋନ୍',
+          labelOdia: 'ଜିଲ୍ଲାପରିଷଦ ଜୋନ',
           type: 'text', 
           icon: <FaBuilding />, 
           required: true 
@@ -317,7 +317,7 @@ export default function RegistrationForm() {
         { 
           name: 'block', 
           labelEng: 'Block', 
-          labelOdia: 'ବ୍ଲକ୍',
+          labelOdia: 'ବ୍ଲକ',
           type: 'text', 
           icon: <FaBuilding />, 
           required: true 
@@ -325,7 +325,7 @@ export default function RegistrationForm() {
         { 
           name: 'constituency', 
           labelEng: 'Constituency', 
-          labelOdia: 'ନିର୍ବାଚନ ମଣ୍ଡଳୀ',
+          labelOdia: 'ନିର୍ବାଚନମଣ୍ଡଳୀ',
           type: 'text', 
           icon: <FaGlobeAsia />, 
           required: true 
@@ -372,7 +372,7 @@ export default function RegistrationForm() {
         { 
           name: 'mobileNo', 
           labelEng: 'Mobile No.', 
-          labelOdia: 'ମୋବାଇଲ ନଂ',
+          labelOdia: 'ମୋ. ନଂ.',
           type: 'tel', 
           icon: <FaPhone />, 
           required: true 
@@ -380,7 +380,7 @@ export default function RegistrationForm() {
         { 
           name: 'whatsappNo', 
           labelEng: 'WhatsApp No.', 
-          labelOdia: 'ୱାଟ୍ସଆପ୍ ନଂ',
+          labelOdia: 'ହ୍ୱାଟ୍ସପ ନଂ.',
           type: 'tel', 
           icon: <FaWhatsapp />, 
           required: true 
@@ -388,7 +388,7 @@ export default function RegistrationForm() {
         { 
           name: 'email', 
           labelEng: 'Email ID', 
-          labelOdia: 'ଇମେଲ ଆଇଡି',
+          labelOdia: 'ଏମେଲ ଆଇଡି',
           type: 'email', 
           icon: <FaEnvelope />, 
           required: true 
@@ -455,13 +455,18 @@ export default function RegistrationForm() {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden"
+      className="max-w-6xl mx-auto bg-slate-400 rounded-2xl shadow-2xl overflow-hidden"
     >
       <div className="md:flex">
         {/* Left Side - Form */}
         <div className="md:w-2/3 p-8 overflow-y-auto max-h-screen">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold gradient-text">Join Bharat Bikash Abhijan</h2>
+            <h2 className="text-3xl font-bold ">Join{' '}
+              {/* Bharat Bikash Abhijan */}
+<span className="text-orange-500">Bharat</span>{' '}
+            <span className="text-white">Bikash</span>{' '}
+            <span className="text-green-600">Abhijan</span>
+            </h2>
             <p className="text-gray-600 mt-2">Registration with Senior Leader Referral Required</p>
             <p className="text-sm text-gray-500 mt-1">Default Role: Member | Status: Inactive (Admin will activate)</p>
           </div>
@@ -676,316 +681,3 @@ export default function RegistrationForm() {
     </motion.div>
   );
 }
-
-// 'use client';
-
-// import { useState } from 'react';
-// import { motion } from 'framer-motion';
-// import { FaUser, FaEnvelope, FaPhone, FaMapMarker, FaCalendar, FaLock, FaIdCard } from 'react-icons/fa';
-
-// export default function RegistrationForm() {
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     email: '',
-//     phone: '',
-//     address: '',
-//     city: '',
-//     state: '',
-//     pincode: '',
-//     dateOfBirth: '',
-//     referralId: '',
-//     referralName: '',
-//     password: '',
-//     confirmPassword: '',
-//     role: 'member', // Default role is member
-//   });
-
-//   const [loading, setLoading] = useState(false);
-//   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value,
-//     });
-//   };
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     setLoading(true);
-//     setMessage(null);
-
-//     if (formData.password !== formData.confirmPassword) {
-//       setMessage({ type: 'error', text: 'Passwords do not match' });
-//       setLoading(false);
-//       return;
-//     }
-
-//     // Prepare data for API
-//     const submissionData = {
-//       name: formData.name,
-//       email: formData.email,
-//       phone: formData.phone,
-//       address: formData.address,
-//       city: formData.city,
-//       state: formData.state,
-//       pincode: formData.pincode,
-//       dateOfBirth: formData.dateOfBirth,
-//       referralId: formData.referralId,
-//       referralName: formData.referralName,
-//       password: formData.password,
-//       role: formData.role, // Only role field
-//       // DO NOT send userId, roleId, registrationId - they will be auto-generated
-//     };
-
-//     console.log('Submitting data:', submissionData); // Debug log
-
-//     console.log('Sending to API:', {
-//      ...submissionData,
-//      password: '[HIDDEN]' // Don't log actual password
-//     }); 
- 
-//     try {
-//       const response = await fetch('/api/register', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify(submissionData),
-//       });
-
-//       const data = await response.json();
-//       console.log('Registration response:', data); // Debug log
-
-//       if (data.success) {
-//         setMessage({
-//           type: 'success',
-//           text: `Registration successful! Your User ID: ${data.userId}, Registration ID: ${data.registrationId}. Status: Inactive - Admin will activate your account.`,
-//         });
-//         // Reset form
-//         setFormData({
-//           name: '',
-//           email: '',
-//           phone: '',
-//           address: '',
-//           city: '',
-//           state: '',
-//           pincode: '',
-//           dateOfBirth: '',
-//           referralId: '',
-//           referralName: '',
-//           password: '',
-//           confirmPassword: '',
-//           role: 'member',
-//         });
-//       } else {
-//         setMessage({ type: 'error', text: data.message });
-//       }
-//     } catch (error) {
-//       console.error('Registration error:', error);
-//       setMessage({ type: 'error', text: 'Registration failed. Please try again.' });
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const formFields = [
-//     { name: 'name', label: 'Full Name', type: 'text', icon: <FaUser />, required: true },
-//     { name: 'email', label: 'Email Address', type: 'email', icon: <FaEnvelope />, required: true },
-//     { name: 'phone', label: 'Phone Number', type: 'tel', icon: <FaPhone />, required: true },
-//     { name: 'address', label: 'Address', type: 'textarea', icon: <FaMapMarker />, required: true },
-//     { name: 'city', label: 'City', type: 'text', icon: <FaMapMarker />, required: true },
-//     { name: 'state', label: 'State', type: 'text', icon: <FaMapMarker />, required: true },
-//     { name: 'pincode', label: 'Pincode', type: 'text', icon: <FaMapMarker />, required: true },
-//     { name: 'dateOfBirth', label: 'Date of Birth', type: 'date', icon: <FaCalendar />, required: true },
-//     { name: 'referralId', label: 'Senior Leader ID', type: 'text', icon: <FaIdCard />, required: true },
-//     { name: 'referralName', label: 'Senior Leader Name', type: 'text', icon: <FaUser />, required: true },
-//     { name: 'password', label: 'Password', type: 'password', icon: <FaLock />, required: true },
-//     { name: 'confirmPassword', label: 'Confirm Password', type: 'password', icon: <FaLock />, required: true },
-//     { name: 'role', label: 'Role', type: 'hidden', icon: <FaUser />, required: false, defaultValue: 'member' },
-//   ];
-
-//   return (
-//     <motion.div
-//       initial={{ opacity: 0, y: 50 }}
-//       animate={{ opacity: 1, y: 0 }}
-//       transition={{ duration: 0.8 }}
-//       className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden"
-//     >
-//       <div className="md:flex">
-//         {/* Left Side - Form */}
-//         <div className="md:w-2/3 p-8">
-//           <div className="text-center mb-8">
-//             <h2 className="text-3xl font-bold gradient-text">Join Bharat Bikash Abhijan</h2>
-//             <p className="text-gray-600 mt-2">Registration with Senior Leader Referral Required</p>
-//             <p className="text-sm text-gray-500 mt-1">Default Role: Member | Status: Inactive (Admin will activate)</p>
-//           </div>
-
-//           {message && (
-//             <motion.div
-//               initial={{ opacity: 0, y: -10 }}
-//               animate={{ opacity: 1, y: 0 }}
-//               className={`mb-6 p-4 rounded-lg ${
-//                 message.type === 'success'
-//                   ? 'bg-green-50 text-green-800 border border-green-200'
-//                   : 'bg-red-50 text-red-800 border border-red-200'
-//               }`}
-//             >
-//               {message.text}
-//             </motion.div>
-//           )}
-
-//           <form onSubmit={handleSubmit} className="space-y-6">
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-//               {formFields.map((field, index) => (
-//                 <motion.div
-//                   key={field.name}
-//                   initial={{ opacity: 0, y: 20 }}
-//                   animate={{ opacity: 1, y: 0 }}
-//                   transition={{ delay: index * 0.1 }}
-//                   className={
-//                     field.type === 'hidden' 
-//                       ? 'hidden' 
-//                       : field.name === 'address' 
-//                         ? 'md:col-span-2' 
-//                         : ''
-//                   }
-//                 >
-//                   {field.type === 'hidden' ? (
-//                     <input
-//                       type="hidden"
-//                       name={field.name}
-//                       value={field.defaultValue || ''}
-//                     />
-//                   ) : (
-//                     <>
-//                       <label className="block text-sm font-medium text-gray-700 mb-2">
-//                         {field.label}
-//                         {field.required && <span className="text-red-500 ml-1">*</span>}
-//                       </label>
-//                       <div className="relative">
-//                         <div className="absolute left-3 top-3 text-gray-400">
-//                           {field.icon}
-//                         </div>
-//                         {field.type === 'textarea' ? (
-//                           <textarea
-//                             name={field.name}
-//                             value={(formData as any)[field.name]}
-//                             onChange={handleChange}
-//                             required={field.required}
-//                             className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-//                             rows={3}
-//                             placeholder={`Enter ${field.label.toLowerCase()}`}
-//                           />
-//                         ) : (
-//                           <input
-//                             type={field.type}
-//                             name={field.name}
-//                             value={(formData as any)[field.name]}
-//                             onChange={handleChange}
-//                             required={field.required}
-//                             className="w-full pl-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-//                             placeholder={`Enter ${field.label.toLowerCase()}`}
-//                           />
-//                         )}
-//                       </div>
-//                     </>
-//                   )}
-//                 </motion.div>
-//               ))}
-//             </div>
-
-//             <motion.button
-//               whileHover={{ scale: 1.02 }}
-//               whileTap={{ scale: 0.98 }}
-//               type="submit"
-//               disabled={loading}
-//               className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-//             >
-//               {loading ? (
-//                 <span className="flex items-center justify-center">
-//                   <svg className="animate-spin h-5 w-5 mr-3 text-white" viewBox="0 0 24 24">
-//                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-//                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-//                   </svg>
-//                   Registering...
-//                 </span>
-//               ) : (
-//                 'Complete Registration'
-//               )}
-//             </motion.button>
-
-//             <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-//               <p className="text-sm text-yellow-800 text-center">
-//                 <strong>Note:</strong> After registration, your account will be <strong>inactive</strong>. 
-//                 Admin will activate it after verification. You will receive your User ID via email.
-//               </p>
-//             </div>
-
-//             <p className="text-center text-gray-600 text-sm">
-//               By registering, you agree to our Terms & Conditions
-//             </p>
-//           </form>
-//         </div>
-
-//         {/* Right Side - Info */}
-//         <div className="md:w-1/3 bg-gradient-to-b from-blue-600 to-green-600 p-8 text-white">
-//           <div className="h-full flex flex-col justify-center">
-//             <h3 className="text-2xl font-bold mb-6">Why Join Us?</h3>
-//             <ul className="space-y-4">
-//               {[
-//                 'Community Development Programs',
-//                 'Leadership Training',
-//                 'Networking Opportunities',
-//                 'Social Impact Projects',
-//                 'Skill Development',
-//                 'National Contribution',
-//               ].map((item, index) => (
-//                 <motion.li
-//                   key={index}
-//                   initial={{ opacity: 0, x: 20 }}
-//                   animate={{ opacity: 1, x: 0 }}
-//                   transition={{ delay: index * 0.1 + 0.5 }}
-//                   className="flex items-center space-x-3"
-//                 >
-//                   <div className="w-2 h-2 bg-yellow-300 rounded-full"></div>
-//                   <span>{item}</span>
-//                 </motion.li>
-//               ))}
-//             </ul>
-
-//             <div className="mt-8 p-4 bg-white/10 rounded-xl">
-//               <h4 className="font-bold mb-2">Registration Process:</h4>
-//               <div className="space-y-2 text-sm">
-//                 <div className="flex items-center">
-//                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mr-2">1</div>
-//                   <span>Submit registration form</span>
-//                 </div>
-//                 <div className="flex items-center">
-//                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mr-2">2</div>
-//                   <span>Account created as <strong>Inactive Member</strong></span>
-//                 </div>
-//                 <div className="flex items-center">
-//                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mr-2">3</div>
-//                   <span>Admin verifies and activates account</span>
-//                 </div>
-//                 <div className="flex items-center">
-//                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mr-2">4</div>
-//                   <span>Receive activation confirmation</span>
-//                 </div>
-//               </div>
-//             </div>
-
-//             <div className="mt-6 p-4 bg-white/10 rounded-xl">
-//               <h4 className="font-bold mb-2">Important Note:</h4>
-//               <p className="text-sm">
-//                 Registration requires a valid Senior Leader referral ID and name.
-//                 <br /><br />
-//                 <strong>Default Role:</strong> Member<br />
-//                 <strong>Default Status:</strong> Inactive
-//               </p>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </motion.div>
-//   );
-// }

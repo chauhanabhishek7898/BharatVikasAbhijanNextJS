@@ -10,16 +10,17 @@ import { useState, useEffect } from 'react';
 export default function Footer() {
   const router = useRouter();
   const contactNumber = "6371602387";
+  const bbaContactNumber = "7750006089";
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 550);
     };
-    
+
     window.addEventListener('resize', handleResize);
     handleResize(); // Initial check
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -44,38 +45,38 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { 
-      icon: FaEnvelope, 
+    {
+      icon: FaEnvelope,
       href: 'mailto:brpalai@gmail.com',
       label: 'Email',
       color: 'hover:bg-red-500'
     },
-    { 
-      icon: FaFacebook, 
+    {
+      icon: FaFacebook,
       href: 'https://facebook.com/brpalai',
       label: 'Facebook',
       color: 'hover:bg-blue-600'
     },
-    { 
-      icon: FaTwitter, 
+    {
+      icon: FaTwitter,
       href: 'https://twitter.com/brpalai',
       label: 'Twitter',
       color: 'hover:bg-sky-500'
     },
-    { 
-      icon: FaInstagram, 
+    {
+      icon: FaInstagram,
       href: 'https://instagram.com/brpalai',
       label: 'Instagram',
       color: 'hover:bg-pink-600'
     },
-    { 
-      icon: FaYoutube, 
+    {
+      icon: FaYoutube,
       href: 'https://www.youtube.com/@bhaktisir',
       label: 'YouTube',
       color: 'hover:bg-red-600'
     },
-    { 
-      icon: FaWhatsapp, 
+    {
+      icon: FaWhatsapp,
       href: 'https://wa.me/916371602387',
       label: 'WhatsApp',
       color: 'hover:bg-green-600'
@@ -103,24 +104,34 @@ export default function Footer() {
                 />
               </div>
               <div className="flex-shrink-0">
-                <h3 className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-2xl font-bold leading-tight`}>
+                {/* <h3 className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-2xl font-bold leading-tight`}>
                   Bharat Bikash <span className="text-yellow-300">Abhijan</span>
-                </h3>
-                <div className={`text-end ${isSmallScreen ? 'text-[10px]' : 'text-xs'} mt-0.5 text-gray-300 whitespace-nowrap`}>
+                </h3> */}
+
+                <h3 className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-2xl font-bold leading-tight`}>
+                  <span className="text-orange-500">Bharat</span>{' '}
+                  <span className="text-white px-2 py-1 rounded-md">Bikash</span>{' '}
+                  <span className="text-green-500">Abhijan</span>
+                </h3>                <div className={`text-end ${isSmallScreen ? 'text-[10px]' : 'text-xs'} mt-0.5 text-gray-300 whitespace-nowrap`}>
                   A social welfare initiative...
                 </div>
               </div>
             </motion.div>
-            
+
             <div className="flex flex-col items-end mt-2">
-              <div className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-2xl font-bold odiya-gradient leading-tight`} style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+              {/* <div className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-2xl font-bold odiya-gradient leading-tight`} style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                 ଭାରତ ବିକାଶ ଅଭିଯାନ
+              </div> */}
+              <div className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-2xl font-bold leading-tight`} style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+                <span className="text-orange-500">ଭାରତ</span>{' '}
+                <span className="text-white px-2 py-1 rounded-md">ବିକାଶ</span>{' '}
+                <span className="text-green-500">ଅଭିଯାନ</span>
               </div>
               <div className={`text-end ${isSmallScreen ? 'text-[10px]' : 'text-xs'} text-gray-300 mt-0.5`} style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                 ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
               </div>
             </div>
-            
+
             <p className="text-gray-300 text-sm leading-relaxed">
               Empowering communities, transforming lives. Join us in the mission for a developed Bharat.
             </p>
@@ -175,7 +186,7 @@ export default function Footer() {
             <h4 className={`${isSmallScreen ? 'text-lg' : 'text-xl'} font-bold mb-4 md:mb-6 text-yellow-300`}>Contact Us</h4>
             <div className="space-y-3 md:space-y-4">
               <motion.a
-                href={`tel:${contactNumber}`}
+                href={`tel:${bbaContactNumber}`}
                 whileHover={{ x: 5 }}
                 className="flex items-center space-x-2 md:space-x-3 group"
               >
@@ -183,18 +194,23 @@ export default function Footer() {
                   <FaPhone className={`text-green-400 ${isSmallScreen ? 'text-base' : 'text-lg md:text-xl'}`} />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-gray-300 group-hover:text-white text-sm md:text-base whitespace-nowrap">{contactNumber}</span>
-                  <div className="text-xs text-gray-400">SEBA ENTERPRISES</div>
+                  <span className="text-gray-300 group-hover:text-white text-sm md:text-base whitespace-nowrap">{bbaContactNumber}</span>
+                  {/* <div className="text-xs text-gray-400">SEBA Enterprises</div> */}
+                  <div className="text-xs font-medium">
+                    <span className="text-orange-500">Bharat</span>{' '}
+                    <span className="text-white">Bikash</span>{' '}
+                    <span className="text-green-600">Abhijan</span>
+                  </div>
                 </div>
               </motion.a>
-              
+
               <div className="flex items-start space-x-2 md:space-x-3">
                 <div className={`p-1.5 md:p-2 bg-blue-500/20 rounded-lg flex-shrink-0 mt-0.5`}>
                   <FaMapMarkerAlt className={`text-blue-400 ${isSmallScreen ? 'text-base' : 'text-lg md:text-xl'}`} />
                 </div>
                 <span className="text-gray-300 text-sm leading-relaxed">Plot No.-629, Sahid Nagar, Bhubaneswar-751007, India</span>
               </div>
-              
+
               <div className="flex items-center space-x-2 md:space-x-3">
                 <div className={`p-1.5 md:p-2 bg-red-500/20 rounded-lg flex-shrink-0`}>
                   <FaEnvelope className={`text-red-400 ${isSmallScreen ? 'text-base' : 'text-lg md:text-xl'}`} />
@@ -232,666 +248,23 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           className="border-t border-white/20 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-gray-400"
         >
-          <p className="text-sm md:text-base">&copy; {new Date().getFullYear()} Bharat Bikash Abhijan. All rights reserved.</p>
+          {/* <p className="text-sm md:text-base">&copy; {new Date().getFullYear()} Bharat Bikash Abhijan. All rights reserved.</p> */}
+          <p className="text-sm md:text-base">
+            &copy; {new Date().getFullYear()}{' '}
+            <span className="text-orange-500">Bharat</span>{' '}
+            <span className="text-white">Bikash</span>{' '}
+            <span className="text-green-600">Abhijan</span>
+            . All rights reserved.
+          </p>
           <p className="mt-2 text-xs md:text-sm">Designed with ❤️ for a better Bharat</p>
           <div className="mt-3 md:mt-4 text-xs opacity-75">
-            Registration: SEBA ENTERPRISES | Contact: {contactNumber}
+            Registration: BBA | Contact: {bbaContactNumber}
+          </div>
+          <div className="mt-3 md:mt-4 text-xl opacity-75">
+            Powered by - Maedesa
           </div>
         </motion.div>
       </div>
     </footer>
   );
 }
-
-// 'use client';
-
-// import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaInfoCircle } from 'react-icons/fa';
-// import Link from 'next/link';
-// import { motion } from 'framer-motion';
-// import Image from 'next/image';
-// import { useRouter } from 'next/navigation';
-
-// export default function Footer() {
-//   const router = useRouter();
-//   const contactNumber = "6371602387";
-
-//   const handleChairmanClick = () => {
-//     if (window.location.pathname === '/') {
-//       // If on home page, scroll to chairman section
-//       const chairmanSection = document.getElementById('chairman');
-//       if (chairmanSection) {
-//         chairmanSection.scrollIntoView({ behavior: 'smooth' });
-//       }
-//     } else {
-//       // If on other page, navigate to home page with hash
-//       router.push('/#chairman');
-//     }
-//   };
-
-//   const navItems = [
-//     { name: 'Home', href: '/' },
-//     { name: 'Register', href: '/register' },
-//     { name: 'Members', href: '/members' },
-//     { name: 'Contact', href: '/contact' },
-//   ];
-
-//   const socialLinks = [
-//     { 
-//       icon: FaEnvelope, 
-//       href: 'mailto:brpalai@gmail.com',
-//       label: 'Email',
-//       color: 'hover:bg-red-500'
-//     },
-//     { 
-//       icon: FaFacebook, 
-//       href: 'https://facebook.com/brpalai',
-//       label: 'Facebook',
-//       color: 'hover:bg-blue-600'
-//     },
-//     { 
-//       icon: FaTwitter, 
-//       href: 'https://twitter.com/brpalai',
-//       label: 'Twitter',
-//       color: 'hover:bg-sky-500'
-//     },
-//     { 
-//       icon: FaInstagram, 
-//       href: 'https://instagram.com/brpalai',
-//       label: 'Instagram',
-//       color: 'hover:bg-pink-600'
-//     },
-//     { 
-//       icon: FaYoutube, 
-//       href: 'https://www.youtube.com/@bhaktisir',
-//       label: 'YouTube',
-//       color: 'hover:bg-red-600'
-//     },
-//     { 
-//       icon: FaWhatsapp, 
-//       href: 'https://wa.me/916371602387',
-//       label: 'WhatsApp',
-//       color: 'hover:bg-green-600'
-//     },
-//   ];
-
-//   return (
-//     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-12 pb-8">
-//       <div className="container mx-auto px-4">
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-//           {/* Organization Info */}
-//           <div className="space-y-4">
-//             <motion.div
-//               initial={{ opacity: 0, x: -20 }}
-//               whileInView={{ opacity: 1, x: 0 }}
-//               className="flex items-center justify-between space-x-2"
-//             >
-//               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
-//                 <Image
-//                   src="/bva_logo.jpeg"
-//                   alt="Bharat Bikash Abhijan Logo"
-//                   width={48}
-//                   height={48}
-//                   className="object-cover w-full h-full"
-//                 />
-//               </div>
-//               <div>
-//                 <h3 className="text-2xl font-bold">
-//                   Bharat Bikash <span className="text-yellow-300">Abhijan</span>
-//                 </h3>
-//                 <div className="text-end text-xs mt-1 text-gray-300">
-//                   A social welfare initiative
-//                 </div>
-//               </div>
-//             </motion.div>
-            
-//             <div className="flex flex-col items-end mt-2">
-//               <div className="text-2xl font-bold odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
-//                 ଭାରତ ବିକାଶ ଅଭିଯାନ
-//               </div>
-//               <div className="text-end text-xs text-gray-300" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
-//                 ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
-//               </div>
-//             </div>
-            
-//             <p className="text-gray-300 text-sm">
-//               Empowering communities, transforming lives. Join us in the mission for a developed Bharat.
-//             </p>
-//             <div className="flex space-x-4">
-//               {/* {[FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaWhatsapp].map((Icon, index) => (
-//                 <motion.a
-//                   key={index}
-//                   href="#"
-//                   whileHover={{ scale: 1.1, rotate: 5 }}
-//                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-colors duration-300"
-//                 >
-//                   <Icon className="text-lg" />
-//                 </motion.a>
-//               ))} */}
-
-//               {socialLinks.map((link, index) => (
-//           <motion.a
-//             key={index}
-//             href={link.href}
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             aria-label={link.label}
-//             whileHover={{ scale: 1.1, rotate: 5 }}
-//             whileTap={{ scale: 0.95 }}
-//             className={`w-12 h-12 rounded-full bg-white/10 ${link.color} flex items-center justify-center transition-all duration-300 cursor-pointer`}
-//           >
-//             <link.icon className="text-xl" />
-//           </motion.a>
-//         ))}
-//             </div>
-//           </div>
-
-//           {/* Quick Links */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Quick Links</h4>
-//             <ul className="space-y-3">
-//               {navItems.map((item) => (
-//                 <li key={item.name}>
-//                   <Link
-//                     href={item.href}
-//                     className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300 flex items-center group"
-//                   >
-//                     <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover:w-4 transition-all duration-300"></span>
-//                     {item.name}
-//                   </Link>
-//                 </li>
-//               ))}
-//               {/* Chairman Link */}
-//               <li>
-//                 <button
-//                   onClick={handleChairmanClick}
-//                   className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300 flex items-center group w-full text-left"
-//                 >
-//                   <FaInfoCircle className="text-blue-500 mr-3" />
-//                   Chairman&apos;s Message
-//                 </button>
-//               </li>
-//             </ul>
-//           </div>
-
-//           {/* Contact Info */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Contact Us</h4>
-//             <div className="space-y-4">
-//               <motion.a
-//                 href={`tel:${contactNumber}`}
-//                 whileHover={{ x: 5 }}
-//                 className="flex items-center space-x-3 group"
-//               >
-//                 <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
-//                   <FaPhone className="text-green-400 text-xl" />
-//                 </div>
-//                 <div>
-//                   <span className="text-gray-300 group-hover:text-white">{contactNumber}</span>
-//                   <div className="text-xs text-gray-400">SEBA ENTERPRISES</div>
-//                 </div>
-//               </motion.a>
-              
-//               <div className="flex items-center space-x-3">
-//                 <div className="p-2 bg-blue-500/20 rounded-lg">
-//                   <FaMapMarkerAlt className="text-blue-400 text-xl" />
-//                 </div>
-//                 <span className="text-gray-300">Plot No.-629, Sahid Nagar, Bhubaneswar-751007, India</span>
-//               </div>
-              
-//               <div className="flex items-center space-x-3">
-//                 <div className="p-2 bg-red-500/20 rounded-lg">
-//                   <FaEnvelope className="text-red-400 text-xl" />
-//                 </div>
-//                 <span className="text-gray-300">brpalai@gmail.com</span>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Newsletter */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Newsletter</h4>
-//             <p className="text-gray-300 mb-4 text-sm">Subscribe for updates and announcements</p>
-//             <form className="space-y-3">
-//               <input
-//                 type="email"
-//                 placeholder="Your email"
-//                 className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-blue-500 text-white placeholder-gray-400"
-//               />
-//               <motion.button
-//                 type="submit"
-//                 whileHover={{ scale: 1.02 }}
-//                 whileTap={{ scale: 0.98 }}
-//                 className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300"
-//               >
-//                 Subscribe
-//               </motion.button>
-//             </form>
-//           </div>
-//         </div>
-
-//         {/* Copyright */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           className="border-t border-white/20 mt-12 pt-8 text-center text-gray-400"
-//         >
-//           <p>&copy; {new Date().getFullYear()} Bharat Bikash Abhijan. All rights reserved.</p>
-//           <p className="mt-2 text-sm">Designed with ❤️ for a better Bharat</p>
-//           <div className="mt-4 text-xs opacity-75">
-//             Registration: SEBA ENTERPRISES | Contact: {contactNumber}
-//           </div>
-//         </motion.div>
-//       </div>
-//     </footer>
-//   );
-// }
-
-// 'use client';
-
-// import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
-// import Link from 'next/link';
-// import { motion } from 'framer-motion';
-// import Image from 'next/image';
-
-// export default function Footer() {
-//   const contactNumber = "6371602387";
-
-//   return (
-//     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-12 pb-8">
-//       <div className="container mx-auto px-4">
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-//           {/* Organization Info */}
-//           <div className="space-y-4">
-//             <motion.div
-//               initial={{ opacity: 0, x: -20 }}
-//               whileInView={{ opacity: 1, x: 0 }}
-//               className="flex items-center space-x-2"
-//             >
-//               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
-//                 <Image
-//                   src="/bva_logo.jpeg"
-//                   alt="Bharat Bikash Abhijan Logo"
-//                   width={48}
-//                   height={48}
-//                   className="object-cover w-full h-full"
-//                 />
-//               </div>
-//               <div>
-//                 <h3 className="text-2xl font-bold">
-//                   Bharat Bikash <span className="text-yellow-300">Abhijan</span>
-//                 </h3>
-//                 <div className="text-xs mt-1 text-gray-300">
-//                   A social welfare initiative
-//                 </div>
-//               </div>
-//             </motion.div>
-            
-//             <div className="mt-2">
-//               <div className="text-sm font-bold odiya-gradient" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
-//                 ଭାରତ ବିକାଶ ଅଭିଯାନ
-//               </div>
-//               <div className="text-xs text-gray-300" style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
-//                 ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
-//               </div>
-//             </div>
-            
-//             <p className="text-gray-300 text-sm">
-//               Empowering communities, transforming lives. Join us in the mission for a developed Bharat.
-//             </p>
-//             <div className="flex space-x-4">
-//               {[FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaWhatsapp].map((Icon, index) => (
-//                 <motion.a
-//                   key={index}
-//                   href="#"
-//                   whileHover={{ scale: 1.1, rotate: 5 }}
-//                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-colors duration-300"
-//                 >
-//                   <Icon className="text-lg" />
-//                 </motion.a>
-//               ))}
-//             </div>
-//           </div>
-
-//           {/* Quick Links */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Quick Links</h4>
-//             <ul className="space-y-3">
-//               {['Home', 'Register', 'Members', 'Chairman', 'Contact'].map((item) => (
-//                 <li key={item}>
-//                   <Link
-//                     href={`/${item.toLowerCase().replace(' ', '-')}`}
-//                     className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300 flex items-center group"
-//                   >
-//                     <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover:w-4 transition-all duration-300"></span>
-//                     {item}
-//                   </Link>
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           {/* Contact Info */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Contact Us</h4>
-//             <div className="space-y-4">
-//               <motion.a
-//                 href={`tel:${contactNumber}`}
-//                 whileHover={{ x: 5 }}
-//                 className="flex items-center space-x-3 group"
-//               >
-//                 <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
-//                   <FaPhone className="text-green-400 text-xl" />
-//                 </div>
-//                 <div>
-//                   <span className="text-gray-300 group-hover:text-white">{contactNumber}</span>
-//                   <div className="text-xs text-gray-400">SEBA ENTERPRISES</div>
-//                 </div>
-//               </motion.a>
-              
-//               <div className="flex items-center space-x-3">
-//                 <div className="p-2 bg-blue-500/20 rounded-lg">
-//                   <FaMapMarkerAlt className="text-blue-400 text-xl" />
-//                 </div>
-//                 <span className="text-gray-300">New Delhi, India</span>
-//               </div>
-              
-//               <div className="flex items-center space-x-3">
-//                 <div className="p-2 bg-red-500/20 rounded-lg">
-//                   <FaEnvelope className="text-red-400 text-xl" />
-//                 </div>
-//                 <span className="text-gray-300">info@bbaindia.org</span>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Newsletter */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Newsletter</h4>
-//             <p className="text-gray-300 mb-4 text-sm">Subscribe for updates and announcements</p>
-//             <form className="space-y-3">
-//               <input
-//                 type="email"
-//                 placeholder="Your email"
-//                 className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-blue-500 text-white placeholder-gray-400"
-//               />
-//               <motion.button
-//                 type="submit"
-//                 whileHover={{ scale: 1.02 }}
-//                 whileTap={{ scale: 0.98 }}
-//                 className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300"
-//               >
-//                 Subscribe
-//               </motion.button>
-//             </form>
-//           </div>
-//         </div>
-
-//         {/* Copyright */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           className="border-t border-white/20 mt-12 pt-8 text-center text-gray-400"
-//         >
-//           <p>&copy; {new Date().getFullYear()} Bharat Bikash Abhijan. All rights reserved.</p>
-//           <p className="mt-2 text-sm">Designed with ❤️ for a better Bharat</p>
-//           <div className="mt-4 text-xs opacity-75">
-//             Registration: SEBA ENTERPRISES | Contact: {contactNumber}
-//           </div>
-//         </motion.div>
-//       </div>
-//     </footer>
-//   );
-// }
-
-// 'use client';
-
-// import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
-// import Link from 'next/link';
-// import { motion } from 'framer-motion';
-
-// export default function Footer() {
-//   const contactNumber = "6371602387";
-
-//   return (
-//     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-12 pb-8">
-//       <div className="container mx-auto px-4">
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-//           {/* Organization Info */}
-//           <div className="space-y-4">
-//             <motion.div
-//               initial={{ opacity: 0, x: -20 }}
-//               whileInView={{ opacity: 1, x: 0 }}
-//               className="flex items-center space-x-2"
-//             >
-//               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
-//                 <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center text-white font-bold">
-//                   BBA
-//                 </div>
-//               </div>
-//               <div>
-//                 <h3 className="text-2xl font-bold">
-//                   Bharat Bikash <span className="text-yellow-300">Abhijan</span>
-//                 </h3>
-//                 <div className="text-xs mt-1 text-gray-300">
-//                   A social welfare initiative
-//                 </div>
-//               </div>
-//             </motion.div>
-            
-//             <div className="mt-2">
-//               <div className="text-sm font-bold odiya-gradient">
-//                 ଭାରତ ବିକାଶ ଅଭିଯାନ
-//               </div>
-//               <div className="text-xs text-gray-300">
-//                 ସମସ୍ତଙ୍କ ସାଥିରେ ସମସ୍ତଙ୍କ ହିତରେ...
-//               </div>
-//             </div>
-            
-//             <p className="text-gray-300 text-sm">
-//               Empowering communities, transforming lives. Join us in the mission for a developed Bharat.
-//             </p>
-//             <div className="flex space-x-4">
-//               {[FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaWhatsapp].map((Icon, index) => (
-//                 <motion.a
-//                   key={index}
-//                   href="#"
-//                   whileHover={{ scale: 1.1, rotate: 5 }}
-//                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-colors duration-300"
-//                 >
-//                   <Icon className="text-lg" />
-//                 </motion.a>
-//               ))}
-//             </div>
-//           </div>
-
-//           {/* Quick Links */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Quick Links</h4>
-//             <ul className="space-y-3">
-//               {['Home', 'Register', 'Members', 'Chairman', 'Contact'].map((item) => (
-//                 <li key={item}>
-//                   <Link
-//                     href={`/${item.toLowerCase().replace(' ', '-')}`}
-//                     className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300 flex items-center group"
-//                   >
-//                     <span className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover:w-4 transition-all duration-300"></span>
-//                     {item}
-//                   </Link>
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           {/* Contact Info */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Contact Us</h4>
-//             <div className="space-y-4">
-//               <motion.a
-//                 href={`tel:${contactNumber}`}
-//                 whileHover={{ x: 5 }}
-//                 className="flex items-center space-x-3 group"
-//               >
-//                 <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
-//                   <FaPhone className="text-green-400 text-xl" />
-//                 </div>
-//                 <div>
-//                   <span className="text-gray-300 group-hover:text-white">{contactNumber}</span>
-//                   <div className="text-xs text-gray-400">SEBA ENTERPRISES</div>
-//                 </div>
-//               </motion.a>
-              
-//               <div className="flex items-center space-x-3">
-//                 <div className="p-2 bg-blue-500/20 rounded-lg">
-//                   <FaMapMarkerAlt className="text-blue-400 text-xl" />
-//                 </div>
-//                 <span className="text-gray-300">New Delhi, India</span>
-//               </div>
-              
-//               <div className="flex items-center space-x-3">
-//                 <div className="p-2 bg-red-500/20 rounded-lg">
-//                   <FaEnvelope className="text-red-400 text-xl" />
-//                 </div>
-//                 <span className="text-gray-300">info@bbaindia.org</span>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Newsletter */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Newsletter</h4>
-//             <p className="text-gray-300 mb-4 text-sm">Subscribe for updates and announcements</p>
-//             <form className="space-y-3">
-//               <input
-//                 type="email"
-//                 placeholder="Your email"
-//                 className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-blue-500 text-white placeholder-gray-400"
-//               />
-//               <motion.button
-//                 type="submit"
-//                 whileHover={{ scale: 1.02 }}
-//                 whileTap={{ scale: 0.98 }}
-//                 className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300"
-//               >
-//                 Subscribe
-//               </motion.button>
-//             </form>
-//           </div>
-//         </div>
-
-//         {/* Copyright */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           className="border-t border-white/20 mt-12 pt-8 text-center text-gray-400"
-//         >
-//           <p>&copy; {new Date().getFullYear()} Bharat Bikash Abhijan. All rights reserved.</p>
-//           <p className="mt-2 text-sm">Designed with ❤️ for a better Bharat</p>
-//           <div className="mt-4 text-xs opacity-75">
-//             Registration: SEBA ENTERPRISES | Contact: {contactNumber}
-//           </div>
-//         </motion.div>
-//       </div>
-//     </footer>
-//   );
-// }
-
-// import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-// import Link from 'next/link';
-
-// export default function Footer() {
-//   return (
-//     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-12 pb-8">
-//       <div className="container mx-auto px-4">
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-//           {/* Organization Info */}
-//           <div className="space-y-4">
-//             <div className="flex items-center space-x-2">
-//               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-//                 <span className="text-blue-600 font-bold text-2xl">BBA</span>
-//               </div>
-//               <h3 className="text-2xl font-bold">
-//                 Bharat Bikas <span className="text-yellow-300">Abhijan</span>
-//               </h3>
-//             </div>
-//             <p className="text-gray-300">
-//               Empowering communities, transforming lives. Join us in the mission for a developed Bharat.
-//             </p>
-//             <div className="flex space-x-4">
-//               {[FaFacebook, FaTwitter, FaInstagram, FaYoutube].map((Icon, index) => (
-//                 <a
-//                   key={index}
-//                   href="#"
-//                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-colors duration-300"
-//                 >
-//                   <Icon className="text-lg" />
-//                 </a>
-//               ))}
-//             </div>
-//           </div>
-
-//           {/* Quick Links */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Quick Links</h4>
-//             <ul className="space-y-3">
-//               {['Home', 'Register', 'Members', 'About Us', 'Contact'].map((item) => (
-//                 <li key={item}>
-//                   <Link
-//                     href={`/${item.toLowerCase().replace(' ', '-')}`}
-//                     className="text-gray-300 hover:text-white hover:pl-2 transition-all duration-300 flex items-center"
-//                   >
-//                     <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-//                     {item}
-//                   </Link>
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           {/* Contact Info */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Contact Us</h4>
-//             <div className="space-y-4">
-//               <div className="flex items-center space-x-3">
-//                 <FaMapMarkerAlt className="text-blue-400 text-xl" />
-//                 <span className="text-gray-300">New Delhi, India</span>
-//               </div>
-//               <div className="flex items-center space-x-3">
-//                 <FaPhone className="text-blue-400 text-xl" />
-//                 <span className="text-gray-300">+91 9876543210</span>
-//               </div>
-//               <div className="flex items-center space-x-3">
-//                 <FaEnvelope className="text-blue-400 text-xl" />
-//                 <span className="text-gray-300">info@bbaindia.org</span>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Newsletter */}
-//           <div>
-//             <h4 className="text-xl font-bold mb-6 text-yellow-300">Newsletter</h4>
-//             <p className="text-gray-300 mb-4">Subscribe for updates and announcements</p>
-//             <form className="space-y-3">
-//               <input
-//                 type="email"
-//                 placeholder="Your email"
-//                 className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-blue-500"
-//               />
-//               <button
-//                 type="submit"
-//                 className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
-//               >
-//                 Subscribe
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-
-//         {/* Copyright */}
-//         <div className="border-t border-white/20 mt-12 pt-8 text-center text-gray-400">
-//           <p>&copy; {new Date().getFullYear()} Bharat Bikas Abhijan. All rights reserved.</p>
-//           <p className="mt-2">Designed with ❤️ for a better Bharat</p>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// }
