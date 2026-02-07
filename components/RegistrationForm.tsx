@@ -31,8 +31,8 @@ export default function RegistrationForm() {
     constituency: '',
     district: '',
     state: '',
-    address: '',
-    pincode: '',
+    // address: '',
+    // pincode: '',
     
     // Contact Information
     mobileNo: '',
@@ -110,8 +110,8 @@ export default function RegistrationForm() {
       constituency: formData.constituency,
       district: formData.district,
       state: formData.state,
-      address: formData.address,
-      pincode: formData.pincode,
+      // address: formData.address,
+      // pincode: formData.pincode,
       mobileNo: formData.mobileNo,
       whatsappNo: formData.whatsappNo,
       email: formData.email,
@@ -157,8 +157,8 @@ export default function RegistrationForm() {
           constituency: '',
           district: '',
           state: '',
-          address: '',
-          pincode: '',
+          // address: '',
+          // pincode: '',
           mobileNo: '',
           whatsappNo: '',
           email: '',
@@ -346,23 +346,23 @@ export default function RegistrationForm() {
           icon: <FaGlobeAsia />, 
           required: true 
         },
-        { 
-          name: 'address', 
-          labelEng: 'Address', 
-          labelOdia: 'ଠିକାଣା',
-          type: 'textarea', 
-          icon: <FaMapMarker />, 
-          required: true,
-          colSpan: 'full' 
-        },
-        { 
-          name: 'pincode', 
-          labelEng: 'Pincode', 
-          labelOdia: 'ପିନକୋଡ୍',
-          type: 'text', 
-          icon: <FaMapMarker />, 
-          required: true 
-        },
+        // { 
+        //   name: 'address', 
+        //   labelEng: 'Address', 
+        //   labelOdia: 'ଠିକାଣା',
+        //   type: 'textarea', 
+        //   icon: <FaMapMarker />, 
+        //   required: true,
+        //   colSpan: 'full' 
+        // },
+        // { 
+        //   name: 'pincode', 
+        //   labelEng: 'Pincode', 
+        //   labelOdia: 'ପିନକୋଡ୍',
+        //   type: 'text', 
+        //   icon: <FaMapMarker />, 
+        //   required: true 
+        // },
       ]
     },
     // Contact Information Section

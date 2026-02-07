@@ -93,14 +93,14 @@ const MemberSchema = new mongoose.Schema({
     lowercase: true,
     trim: true,
   },
-  address: {
-    type: String,
-    required: [true, 'Address is required'],
-  },
-  pincode: {
-    type: String,
-    required: [true, 'Pincode is required'],
-  },
+  // address: {
+  //   type: String,
+  //   required: [true, 'Address is required'],
+  // },
+  // pincode: {
+  //   type: String,
+  //   required: [true, 'Pincode is required'],
+  // },
   referralId: {
     type: String,
     required: [true, 'Senior leader referral ID is required'],

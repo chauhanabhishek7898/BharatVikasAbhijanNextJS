@@ -261,7 +261,15 @@ export default function Footer() {
             Registration: BBA | Contact: {bbaContactNumber}
           </div>
           <div className="mt-3 md:mt-4 text-xl opacity-75">
-            Powered by - Maedesa
+            Powered by -{' '} 
+            <a 
+      href="https://maedesa.com" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="text-blue-400 hover:text-blue-300 hover:underline transition-all duration-300 cursor-pointer"
+    >
+      Maedesa
+    </a>
           </div>
         </motion.div>
       </div>
