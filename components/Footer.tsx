@@ -108,7 +108,7 @@ export default function Footer() {
                   Bharat Bikash <span className="text-yellow-300">Abhijan</span>
                 </h3> */}
 
-                <h3 className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-2xl font-bold leading-tight`}>
+                <h3 className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-xl font-bold leading-tight`}>
                   <span className="text-orange-500">Bharat</span>{' '}
                   <span className="text-white px-2 py-1 rounded-md">Bikash</span>{' '}
                   <span className="text-green-500">Abhijan</span>
@@ -122,7 +122,7 @@ export default function Footer() {
               {/* <div className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-2xl font-bold odiya-gradient leading-tight`} style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                 ଭାରତ ବିକାଶ ଅଭିଯାନ
               </div> */}
-              <div className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-2xl font-bold leading-tight`} style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
+              <div className={`${isSmallScreen ? 'text-lg' : 'text-xl'} md:text-xl font-bold leading-tight`} style={{ fontFamily: "'Noto Sans Odia', sans-serif" }}>
                 <span className="text-orange-500">ଭାରତ</span>{' '}
                 <span className="text-white px-2 py-1 rounded-md">ବିକାଶ</span>{' '}
                 <span className="text-green-500">ଅଭିଯାନ</span>
